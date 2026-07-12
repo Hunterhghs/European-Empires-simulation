@@ -145,7 +145,7 @@ body {
 .era-year { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--bronze); line-height: 1; }
 .era-year.bce { color: var(--wine); }
 .era-label { font-family: var(--font-vintage); font-size: 0.95rem; font-style: italic; color: var(--text-secondary); margin-top: 0.25rem; }
-.era-subtitle { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; font-family: var(--font-sans); }
+.era-subtitle { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem; font-family: var(--font-sans); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 300px; margin-left: auto; margin-right: auto; }
 
 .empire-item {
   display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;
@@ -156,12 +156,13 @@ body {
 .empire-item:last-child { border-bottom: none; }
 .empire-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.2); }
 .empire-info { flex: 1; min-width: 0; }
-.empire-name { color: var(--text-primary); font-weight: 600; font-family: var(--font-display); font-size: 0.82rem; }
-.empire-dates { color: var(--text-muted); font-size: 0.65rem; font-family: var(--font-sans); }
+.empire-name { color: var(--text-primary); font-weight: 600; font-family: var(--font-display); font-size: 0.82rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 180px; }
+.empire-flag { font-size: 1.1rem; flex-shrink: 0; line-height: 1; }
+.empire-dates { color: var(--text-muted); font-size: 0.62rem; font-family: var(--font-sans); white-space: nowrap; }
 .empire-capital { color: var(--text-light); font-size: 0.62rem; font-family: var(--font-sans); }
 .empire-phase {
-  font-size: 0.58rem; font-family: var(--font-sans); font-weight: 600;
-  padding: 0.05rem 0.35rem; border-radius: 2px; margin-left: 0.3rem;
+  font-size: 0.55rem; font-family: var(--font-sans); font-weight: 600;
+  padding: 0.05rem 0.3rem; border-radius: 2px; flex-shrink: 0;
 }
 .phase-rising { background: rgba(96,168,112,0.2); color: #3a8050; }
 .phase-peak { background: rgba(184,150,60,0.2); color: var(--brass); }
@@ -366,8 +367,8 @@ body {
   </div>
   <div class="timeline-speed">
     <span>Speed</span>
-    <button class="speed-btn" data-speed="600" onclick="setSpeed(600)">0.5×</button>
-    <button class="speed-btn active" data-speed="300" onclick="setSpeed(300)">1×</button>
+    <button class="speed-btn active" data-speed="600" onclick="setSpeed(600)">0.5×</button>
+    <button class="speed-btn" data-speed="300" onclick="setSpeed(300)">1×</button>
     <button class="speed-btn" data-speed="140" onclick="setSpeed(140)">2×</button>
     <button class="speed-btn" data-speed="60" onclick="setSpeed(60)">4×</button>
   </div>
@@ -742,6 +743,23 @@ const EMPIRE_DATA = [
 ];
 
 /* ────────────────────────────────────────────────
+   EMPIRE FLAGS — Emoji/icons for each empire
+   ──────────────────────────────────────────────── */
+const EMPIRE_FLAGS = {
+  minoan:"🏺", mycenaean:"⚔️", hittite:"🦁", assyrian:"🏹", phoenician:"⛵",
+  greek:"🏛️", persian:"👑", macedonian:"⚡", carthage:"🐘",
+  "roman-republic":"🦅", "roman-empire":"🏛️", sassanid:"🔥",
+  byzantine:"☦️", umayyad:"🌙", abbasid:"📚", carolingian:"⚜️",
+  viking:"🪓", "kievan-rus":"🏰", "holy-roman":"👑",
+  england:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", france:"🇫🇷", venice:"🦁", mongol:"🐎",
+  ottoman:"🇹🇷", "polish-lithuanian":"🇵🇱", spain:"🇪🇸", british:"🇬🇧",
+  russian:"🇷🇺", prussia:"🦅", napoleonic:"🇫🇷",
+  "german-empire":"🇩🇪", "austria-hungary":"🇦🇹", soviet:"☭",
+  "nazi-germany":"⬛", eu:"🇪🇺", bulgarian:"🇧🇬", portugal:"🇵🇹",
+  kalmar:"🇸🇪", habsburg:"👑", dutch:"🇳🇱", swedish:"🇸🇪", parthian:"🏇"
+};
+
+/* ────────────────────────────────────────────────
    CITIES DATA
    ──────────────────────────────────────────────── */
 const CITIES_DATA = [
@@ -1000,7 +1018,7 @@ function getEmpirePhase(empire, year) {
 let currentYearIndex = 0;
 let isPlaying = false;
 let playInterval = null;
-let animSpeed = 300;
+let animSpeed = 600;
 let showEmpireBorders = true;
 let map, empirePolygons = {};
 let cityMarkersGroup, eventMarkersGroup;
@@ -1225,6 +1243,7 @@ function updateSidePanel(year) {
       else if (phase === 'falling') phaseBadge = '<span class="empire-phase phase-falling">▼ Falling</span>';
 
       empireHTML += '<div class="empire-item animate-in" id="empire-'+e.id+'" onclick="focusEmpire(\''+e.id+'\')">';
+      empireHTML += '<span class="empire-flag">'+(EMPIRE_FLAGS[e.id]||'🏳️')+'</span>';
       empireHTML += '<span class="empire-dot" style="background:'+e.color+';"></span>';
       empireHTML += '<div class="empire-info">';
       empireHTML += '<div class="empire-name">'+e.name+phaseBadge+'</div>';
