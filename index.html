@@ -16,7 +16,6 @@
    CSS CUSTOM PROPERTIES — Parchment Historical Design System
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Parchment base */
   --bg-parchment: #f4e4c1;
   --bg-parchment-dark: #e8d5b0;
   --bg-panel: #faf3e6;
@@ -24,22 +23,16 @@
   --bg-card-hover: #e8d8b8;
   --bg-deep: #2a1f14;
   --bg-charcoal: #3a2a18;
-
-  /* Borders */
   --border: #c8b898;
   --border-light: #d4c4a0;
   --border-gold: #b8963c;
   --border-dark: #6b5030;
-
-  /* Text */
   --text-primary: #3a2a18;
   --text-secondary: #5a4830;
   --text-muted: #8b7558;
   --text-light: #a89878;
   --text-on-dark: #f0e6d0;
   --text-on-dark-muted: #c8b898;
-
-  /* Accents */
   --gold: #b8963c;
   --gold-bright: #d4a840;
   --brass: #a08030;
@@ -48,8 +41,6 @@
   --wine: #7b2040;
   --crimson: #a02030;
   --navy: #303850;
-
-  /* Empire category colors */
   --color-bronze-age: #8b6914;
   --color-classical: #a02030;
   --color-roman: #8b2020;
@@ -61,23 +52,16 @@
   --color-colonial: #2048a0;
   --color-modern: #505868;
   --color-eu: #2058c0;
-
-  --radius: 5px;
-  --radius-sm: 3px;
-  --radius-lg: 8px;
+  --radius: 5px; --radius-sm: 3px; --radius-lg: 8px;
   --shadow-panel: 0 4px 24px rgba(42,31,20,0.15);
   --shadow-card: 0 2px 8px rgba(42,31,20,0.1);
   --transition: 0.25s ease;
-
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-vintage: 'IM Fell English', Georgia, 'Times New Roman', serif;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   BASE
-   ═══════════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 100%; height: 100%; overflow: hidden; }
 body {
@@ -86,194 +70,115 @@ body {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   display: flex; flex-direction: column;
-  font-size: 16px;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   HEADER
-   ═══════════════════════════════════════════════════════════ */
 .header {
   height: 56px; min-height: 56px;
   background: linear-gradient(180deg, #3a2a18 0%, #2a1f14 100%);
   border-bottom: 2px solid var(--border-gold);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 1.5rem;
-  z-index: 1000;
-  user-select: none;
+  padding: 0 1.5rem; z-index: 1000; user-select: none;
 }
 .header-left { display: flex; align-items: center; gap: 0.75rem; }
 .header-logo {
-  font-family: var(--font-display);
-  font-size: 1.1rem; font-weight: 700;
-  color: var(--gold-bright);
-  letter-spacing: 0.03em;
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 700;
+  color: var(--gold-bright); letter-spacing: 0.03em;
 }
 .header-logo span {
-  color: var(--text-on-dark-muted);
-  font-weight: 400; font-size: 0.75rem;
-  margin-left: 0.4rem;
-  font-family: var(--font-vintage);
-  font-style: italic;
+  color: var(--text-on-dark-muted); font-weight: 400; font-size: 0.75rem;
+  margin-left: 0.4rem; font-family: var(--font-vintage); font-style: italic;
 }
-.header-center {
-  display: flex; align-items: center; gap: 1.4rem;
-  font-size: 0.72rem;
-}
+.header-center { display: flex; align-items: center; gap: 1.4rem; font-size: 0.72rem; }
 .header-stat { display: flex; align-items: center; gap: 0.35rem; }
-.header-stat .stat-value {
-  color: var(--gold-bright); font-weight: 700; font-size: 0.95rem;
-  font-family: var(--font-display);
-}
-.header-stat .stat-label {
-  color: var(--text-on-dark-muted); font-size: 0.62rem;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  font-family: var(--font-sans);
-}
+.header-stat .stat-value { color: var(--gold-bright); font-weight: 700; font-size: 0.95rem; font-family: var(--font-display); }
+.header-stat .stat-label { color: var(--text-on-dark-muted); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font-sans); }
 .header-right { display: flex; align-items: center; gap: 0.5rem; }
 .header-btn {
   background: rgba(240,230,208,0.08); border: 1px solid var(--border-dark);
   color: var(--text-on-dark-muted); padding: 0.35rem 0.75rem;
   border-radius: var(--radius-sm); cursor: pointer;
-  font-size: 0.68rem; font-family: var(--font-sans);
-  transition: var(--transition);
+  font-size: 0.68rem; font-family: var(--font-sans); transition: var(--transition);
   display: flex; align-items: center; gap: 0.3rem;
 }
-.header-btn:hover {
-  background: rgba(240,230,208,0.14);
-  border-color: var(--border-gold);
-  color: var(--text-on-dark);
-}
-.header-btn.active {
-  background: rgba(184,150,60,0.15);
-  border-color: var(--gold);
-  color: var(--gold-bright);
-}
+.header-btn:hover { background: rgba(240,230,208,0.14); border-color: var(--border-gold); color: var(--text-on-dark); }
+.header-btn.active { background: rgba(184,150,60,0.15); border-color: var(--gold); color: var(--gold-bright); }
 
-/* ═══════════════════════════════════════════════════════════
-   MAIN LAYOUT
-   ═══════════════════════════════════════════════════════════ */
-.main-container {
-  flex: 1; display: flex; overflow: hidden;
-  position: relative;
-}
-.map-area {
-  flex: 1; position: relative;
-  background: #e8dcc8;
-}
-#map {
-  width: 100%; height: 100%;
-}
-
-/* Parchment tile filter — turns modern map tiles into antique parchment */
+.main-container { flex: 1; display: flex; overflow: hidden; position: relative; }
+.map-area { flex: 1; position: relative; background: #e8dcc8; }
+#map { width: 100%; height: 100%; }
 #map .leaflet-tile {
   filter: sepia(0.55) saturate(0.7) brightness(1.08) hue-rotate(5deg);
   -webkit-filter: sepia(0.55) saturate(0.7) brightness(1.08) hue-rotate(5deg);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   SIDE PANEL
-   ═══════════════════════════════════════════════════════════ */
+/* Empire polygon animation */
+.empire-polygon {
+  transition: fill-opacity 0.6s ease, stroke-opacity 0.6s ease;
+}
+.empire-polygon.rising {
+  animation: empirePulse 2s ease-in-out infinite;
+}
+@keyframes empirePulse {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(0,0,0,0.2)); }
+  50% { filter: drop-shadow(0 0 6px rgba(0,0,0,0.35)); }
+}
+
 .side-panel {
   width: 370px; min-width: 370px;
   background: var(--bg-panel);
   border-left: 2px solid var(--border-gold);
-  display: flex; flex-direction: column;
-  overflow-y: auto;
-  z-index: 900;
-  box-shadow: -2px 0 20px rgba(42,31,20,0.08);
+  display: flex; flex-direction: column; overflow-y: auto;
+  z-index: 900; box-shadow: -2px 0 20px rgba(42,31,20,0.08);
 }
-.panel-section {
-  padding: 1rem 1.3rem;
-  border-bottom: 1px solid var(--border);
-}
+.panel-section { padding: 1rem 1.3rem; border-bottom: 1px solid var(--border); }
 .panel-section:last-child { border-bottom: none; }
 .panel-title {
-  font-family: var(--font-display);
-  font-size: 0.85rem; font-weight: 700;
-  color: var(--bronze);
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--border-light);
-  padding-bottom: 0.4rem;
+  font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+  color: var(--bronze); margin-bottom: 0.7rem; letter-spacing: 0.04em;
+  text-transform: uppercase; border-bottom: 1px solid var(--border-light); padding-bottom: 0.4rem;
 }
-
-/* Era Display */
 .era-display {
-  text-align: center;
-  padding: 1.2rem 1.3rem;
+  text-align: center; padding: 1.2rem 1.3rem;
   background: linear-gradient(180deg, rgba(184,150,60,0.08) 0%, rgba(250,243,230,0) 100%);
   border-bottom: 1px solid var(--border-gold);
 }
-.era-year {
-  font-family: var(--font-display);
-  font-size: 2.6rem; font-weight: 900;
-  color: var(--bronze);
-  line-height: 1;
-}
+.era-year { font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--bronze); line-height: 1; }
 .era-year.bce { color: var(--wine); }
-.era-label {
-  font-family: var(--font-vintage);
-  font-size: 0.95rem; font-style: italic;
-  color: var(--text-secondary);
-  margin-top: 0.25rem;
-}
-.era-subtitle {
-  font-size: 0.72rem; color: var(--text-muted);
-  margin-top: 0.2rem;
-  font-family: var(--font-sans);
-}
+.era-label { font-family: var(--font-vintage); font-size: 0.95rem; font-style: italic; color: var(--text-secondary); margin-top: 0.25rem; }
+.era-subtitle { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; font-family: var(--font-sans); }
 
-/* Empire List */
 .empire-item {
-  display: flex; align-items: center; gap: 0.5rem;
-  padding: 0.4rem 0;
-  font-size: 0.78rem;
-  border-bottom: 1px solid rgba(200,184,152,0.4);
-  transition: var(--transition);
-  cursor: pointer;
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0;
+  font-size: 0.78rem; border-bottom: 1px solid rgba(200,184,152,0.4);
+  transition: var(--transition); cursor: pointer;
 }
 .empire-item:hover { background: rgba(184,150,60,0.06); border-radius: 3px; padding-left: 0.2rem; }
 .empire-item:last-child { border-bottom: none; }
-.empire-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  flex-shrink: 0;
-  border: 1.5px solid rgba(0,0,0,0.2);
-}
+.empire-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; border: 1.5px solid rgba(0,0,0,0.2); }
 .empire-info { flex: 1; min-width: 0; }
 .empire-name { color: var(--text-primary); font-weight: 600; font-family: var(--font-display); font-size: 0.82rem; }
 .empire-dates { color: var(--text-muted); font-size: 0.65rem; font-family: var(--font-sans); }
 .empire-capital { color: var(--text-light); font-size: 0.62rem; font-family: var(--font-sans); }
-
-/* Event Item */
-.event-item {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(200,184,152,0.4);
+.empire-phase {
+  font-size: 0.58rem; font-family: var(--font-sans); font-weight: 600;
+  padding: 0.05rem 0.35rem; border-radius: 2px; margin-left: 0.3rem;
 }
+.phase-rising { background: rgba(96,168,112,0.2); color: #3a8050; }
+.phase-peak { background: rgba(184,150,60,0.2); color: var(--brass); }
+.phase-falling { background: rgba(200,80,64,0.2); color: var(--copper); }
+
+.event-item { padding: 0.5rem 0; border-bottom: 1px solid rgba(200,184,152,0.4); }
 .event-item:last-child { border-bottom: none; }
 .event-year-badge {
-  display: inline-block;
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  color: var(--brass);
-  font-size: 0.62rem; font-weight: 600;
-  padding: 0.1rem 0.45rem; border-radius: 3px;
-  margin-bottom: 0.2rem;
-  font-family: var(--font-sans);
+  display: inline-block; background: var(--bg-card); border: 1px solid var(--border-gold);
+  color: var(--brass); font-size: 0.62rem; font-weight: 600;
+  padding: 0.1rem 0.45rem; border-radius: 3px; margin-bottom: 0.2rem; font-family: var(--font-sans);
 }
 .event-title { font-size: 0.8rem; color: var(--text-primary); font-weight: 600; }
 .event-desc { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem; line-height: 1.4; }
-
-/* Battle/Event marker on map popup */
 .event-category {
-  display: inline-block;
-  font-size: 0.58rem;
-  padding: 0.1rem 0.35rem;
-  border-radius: 2px;
-  margin-left: 0.3rem;
-  font-family: var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  display: inline-block; font-size: 0.58rem; padding: 0.1rem 0.35rem; border-radius: 2px;
+  margin-left: 0.3rem; font-family: var(--font-sans); text-transform: uppercase; letter-spacing: 0.04em;
 }
 .cat-war { background: rgba(160,32,48,0.15); color: var(--crimson); }
 .cat-found { background: rgba(48,56,80,0.1); color: var(--navy); }
@@ -281,49 +186,26 @@ body {
 .cat-politics { background: rgba(32,136,96,0.1); color: #186848; }
 .cat-science { background: rgba(48,88,160,0.1); color: #2048a0; }
 
-/* ═══════════════════════════════════════════════════════════
-   TIMELINE BAR
-   ═══════════════════════════════════════════════════════════ */
 .timeline-bar {
   height: 80px; min-height: 80px;
   background: linear-gradient(0deg, #f0e6d0 0%, #faf3e6 100%);
   border-top: 2px solid var(--border-gold);
-  display: flex; align-items: center;
-  padding: 0 1.5rem;
-  gap: 1rem;
-  z-index: 1000;
-  user-select: none;
+  display: flex; align-items: center; padding: 0 1.5rem; gap: 1rem;
+  z-index: 1000; user-select: none;
 }
-.timeline-controls {
-  display: flex; align-items: center; gap: 0.5rem;
-}
+.timeline-controls { display: flex; align-items: center; gap: 0.5rem; }
 .timeline-btn {
   background: var(--bg-card); border: 1px solid var(--border);
   color: var(--text-secondary); width: 34px; height: 34px;
-  border-radius: 50%; cursor: pointer;
-  font-size: 0.85rem; display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
+  border-radius: 50%; cursor: pointer; font-size: 0.85rem;
+  display: flex; align-items: center; justify-content: center; transition: var(--transition);
 }
 .timeline-btn:hover { background: var(--bg-card-hover); border-color: var(--border-gold); color: var(--text-primary); }
-.timeline-btn.play {
-  width: 38px; height: 38px;
-  background: var(--bg-card); border-color: var(--border-gold);
-  color: var(--brass);
-  font-size: 0.9rem;
-}
+.timeline-btn.play { width: 38px; height: 38px; background: var(--bg-card); border-color: var(--border-gold); color: var(--brass); font-size: 0.9rem; }
 .timeline-btn.play:hover { background: var(--bg-card-hover); color: var(--gold); }
 
-.timeline-track-container {
-  flex: 1; position: relative; height: 44px;
-  display: flex; align-items: center;
-}
-.timeline-track {
-  width: 100%; height: 5px;
-  background: var(--border-light);
-  border-radius: 3px;
-  position: relative;
-  cursor: pointer;
-}
+.timeline-track-container { flex: 1; position: relative; height: 44px; display: flex; align-items: center; }
+.timeline-track { width: 100%; height: 5px; background: var(--border-light); border-radius: 3px; position: relative; cursor: pointer; }
 .timeline-progress {
   height: 100%;
   background: linear-gradient(90deg, var(--color-bronze-age), var(--color-classical), var(--color-roman), var(--color-byzantine), var(--color-medieval), var(--color-renaissance), var(--color-colonial), var(--color-eu));
@@ -331,176 +213,71 @@ body {
 }
 .timeline-thumb {
   position: absolute; top: 50%; transform: translate(-50%, -50%);
-  width: 18px; height: 18px;
-  background: var(--gold-bright);
-  border: 2.5px solid var(--bg-deep);
-  border-radius: 50%;
-  cursor: grab;
-  box-shadow: 0 0 8px rgba(184,150,60,0.5);
-  z-index: 10;
+  width: 18px; height: 18px; background: var(--gold-bright);
+  border: 2.5px solid var(--bg-deep); border-radius: 50%;
+  cursor: grab; box-shadow: 0 0 8px rgba(184,150,60,0.5); z-index: 10;
 }
 .timeline-thumb:active { cursor: grabbing; transform: translate(-50%, -50%) scale(1.25); }
 
-.timeline-ticks {
-  position: absolute; top: -20px; left: 0; right: 0;
-  display: flex; justify-content: space-between;
-}
-.timeline-tick {
-  font-size: 0.55rem; color: var(--text-muted);
-  cursor: pointer;
-  transition: var(--transition);
-  padding: 0 2px;
-  font-family: var(--font-sans);
-  white-space: nowrap;
-}
+.timeline-ticks { position: absolute; top: -20px; left: 0; right: 0; display: flex; justify-content: space-between; }
+.timeline-tick { font-size: 0.55rem; color: var(--text-muted); cursor: pointer; transition: var(--transition); padding: 0 2px; font-family: var(--font-sans); white-space: nowrap; }
 .timeline-tick:hover { color: var(--text-secondary); }
 .timeline-tick.active { color: var(--brass); font-weight: 700; }
 .timeline-tick.era-boundary { color: var(--copper); font-weight: 600; }
 
-.timeline-speed {
-  display: flex; align-items: center; gap: 0.3rem;
-}
-.timeline-speed span {
-  font-size: 0.58rem; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 0.04em;
-  font-family: var(--font-sans);
-}
-.speed-btn {
-  background: transparent; border: 1px solid var(--border);
-  color: var(--text-muted); padding: 0.18rem 0.4rem;
-  border-radius: 3px; cursor: pointer; font-size: 0.58rem;
-  font-family: var(--font-sans);
-}
+.timeline-speed { display: flex; align-items: center; gap: 0.3rem; }
+.timeline-speed span { font-size: 0.58rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-family: var(--font-sans); }
+.speed-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.18rem 0.4rem; border-radius: 3px; cursor: pointer; font-size: 0.58rem; font-family: var(--font-sans); }
 .speed-btn:hover { border-color: var(--border-gold); color: var(--text-secondary); }
 .speed-btn.active { border-color: var(--brass); color: var(--brass); font-weight: 600; }
 
-/* ═══════════════════════════════════════════════════════════
-   MAP OVERLAYS
-   ═══════════════════════════════════════════════════════════ */
 .map-legend {
   position: absolute; bottom: 16px; right: 16px;
-  background: rgba(250,243,230,0.94);
-  border: 1px solid var(--border-gold);
-  border-radius: var(--radius);
-  padding: 0.7rem 0.9rem;
-  z-index: 800;
-  font-size: 0.68rem;
-  backdrop-filter: blur(6px);
-  max-width: 200px;
+  background: rgba(250,243,230,0.94); border: 1px solid var(--border-gold);
+  border-radius: var(--radius); padding: 0.7rem 0.9rem; z-index: 800;
+  font-size: 0.68rem; backdrop-filter: blur(6px); max-width: 200px;
 }
-.legend-title {
-  font-family: var(--font-display);
-  font-size: 0.7rem; font-weight: 700;
-  color: var(--text-secondary);
-  margin-bottom: 0.45rem;
-}
-.legend-row {
-  display: flex; align-items: center; gap: 0.4rem;
-  margin-bottom: 0.22rem;
-}
-.legend-swatch {
-  width: 10px; height: 10px; border-radius: 2px;
-  flex-shrink: 0;
-  border: 1px solid rgba(0,0,0,0.15);
-}
-.legend-label {
-  font-size: 0.62rem; color: var(--text-secondary);
-  font-family: var(--font-sans);
-}
-.map-watermark {
-  position: absolute; bottom: 10px; left: 10px;
-  font-size: 0.55rem; color: var(--text-light);
-  font-family: var(--font-vintage);
-  font-style: italic;
-  z-index: 800;
-  opacity: 0.7;
-}
+.legend-title { font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.45rem; }
+.legend-row { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.22rem; }
+.legend-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; border: 1px solid rgba(0,0,0,0.15); }
+.legend-label { font-size: 0.62rem; color: var(--text-secondary); font-family: var(--font-sans); }
+.map-watermark { position: absolute; bottom: 10px; left: 10px; font-size: 0.55rem; color: var(--text-light); font-family: var(--font-vintage); font-style: italic; z-index: 800; opacity: 0.7; }
 
-/* Tooltip for map */
 .map-tooltip {
-  position: absolute;
-  background: rgba(42,31,20,0.92);
-  color: var(--text-on-dark);
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.72rem;
-  pointer-events: none;
-  z-index: 850;
-  opacity: 0;
-  transition: opacity 0.15s;
-  border: 1px solid var(--border-gold);
-  font-family: var(--font-sans);
-  max-width: 240px;
+  position: absolute; background: rgba(42,31,20,0.94); color: var(--text-on-dark);
+  padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.72rem;
+  pointer-events: none; z-index: 850; opacity: 0; transition: opacity 0.15s;
+  border: 1px solid var(--border-gold); font-family: var(--font-sans); max-width: 260px;
 }
 .map-tooltip.visible { opacity: 1; }
-.map-tooltip .tt-name {
-  font-weight: 600; color: var(--gold-bright);
-  font-family: var(--font-display); font-size: 0.8rem;
-}
+.map-tooltip .tt-name { font-weight: 600; color: var(--gold-bright); font-family: var(--font-display); font-size: 0.82rem; }
 .map-tooltip .tt-detail { font-size: 0.65rem; color: var(--text-on-dark-muted); margin-top: 0.15rem; }
+.map-tooltip .tt-phase { font-size: 0.6rem; margin-top: 0.2rem; padding: 0.08rem 0.3rem; border-radius: 2px; display: inline-block; }
+.tt-rising { background: rgba(96,168,112,0.3); color: #80d898; }
+.tt-peak { background: rgba(212,168,64,0.3); color: #e8c860; }
+.tt-falling { background: rgba(200,80,64,0.3); color: #e89080; }
 
-/* ═══════════════════════════════════════════════════════════
-   SCROLLBAR
-   ═══════════════════════════════════════════════════════════ */
 .side-panel::-webkit-scrollbar { width: 4px; }
 .side-panel::-webkit-scrollbar-track { background: transparent; }
 .side-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-/* ═══════════════════════════════════════════════════════════
-   ANIMATIONS
-   ═══════════════════════════════════════════════════════════ */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 .animate-in { animation: fadeIn 0.35s ease forwards; }
-
-@keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(184,150,60,0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(184,150,60,0); }
-}
+@keyframes pulse-gold { 0%, 100% { box-shadow: 0 0 0 0 rgba(184,150,60,0.4); } 50% { box-shadow: 0 0 0 8px rgba(184,150,60,0); } }
 .pulse-ring { animation: pulse-gold 2s ease infinite; }
 
-/* Leaflet overrides for historical theme */
-.leaflet-container {
-  background: #e8dcc8;
-  font-family: var(--font-body);
-}
-.leaflet-control-zoom a {
-  background: var(--bg-panel) !important;
-  color: var(--text-secondary) !important;
-  border-color: var(--border) !important;
-  border-radius: 3px !important;
-}
-.leaflet-control-zoom a:hover {
-  background: var(--bg-card-hover) !important;
-  color: var(--text-primary) !important;
-}
-.leaflet-control-attribution {
-  background: rgba(250,243,230,0.8) !important;
-  color: var(--text-light) !important;
-  font-size: 0.55rem !important;
-  font-family: var(--font-sans) !important;
-}
+.leaflet-container { background: #e8dcc8; font-family: var(--font-body); }
+.leaflet-control-zoom a { background: var(--bg-panel) !important; color: var(--text-secondary) !important; border-color: var(--border) !important; border-radius: 3px !important; }
+.leaflet-control-zoom a:hover { background: var(--bg-card-hover) !important; color: var(--text-primary) !important; }
+.leaflet-control-attribution { background: rgba(250,243,230,0.8) !important; color: var(--text-light) !important; font-size: 0.55rem !important; font-family: var(--font-sans) !important; }
 .leaflet-control-attribution a { color: var(--text-muted) !important; }
-.leaflet-popup-content-wrapper {
-  background: var(--bg-panel) !important;
-  color: var(--text-primary) !important;
-  border: 1px solid var(--border-gold) !important;
-  border-radius: var(--radius) !important;
-  font-family: var(--font-body) !important;
-  box-shadow: var(--shadow-panel) !important;
-}
+.leaflet-popup-content-wrapper { background: var(--bg-panel) !important; color: var(--text-primary) !important; border: 1px solid var(--border-gold) !important; border-radius: var(--radius) !important; font-family: var(--font-body) !important; box-shadow: var(--shadow-panel) !important; }
 .leaflet-popup-tip { background: var(--bg-panel) !important; }
 
-/* ═══════════════════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .side-panel { width: 280px; min-width: 280px; }
   .header-center { gap: 0.7rem; }
-  .header-center .header-stat:nth-child(3),
-  .header-center .header-stat:nth-child(4) { display: none; }
+  .header-center .header-stat:nth-child(3), .header-center .header-stat:nth-child(4) { display: none; }
   .header-logo { font-size: 0.9rem; }
   .era-year { font-size: 2rem; }
   .timeline-ticks { display: none; }
@@ -517,28 +294,15 @@ body {
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════ HEADER ═══ -->
 <header class="header">
   <div class="header-left">
     <div class="header-logo">EUROPEAN EMPIRES <span>· 3000 BCE – 2025 CE</span></div>
   </div>
   <div class="header-center">
-    <div class="header-stat">
-      <span class="stat-label">Active Empires</span>
-      <span class="stat-value" id="stat-empires">2</span>
-    </div>
-    <div class="header-stat">
-      <span class="stat-label">Est. Population</span>
-      <span class="stat-value" id="stat-population">5M</span>
-    </div>
-    <div class="header-stat">
-      <span class="stat-label">Major Cities</span>
-      <span class="stat-value" id="stat-cities">3</span>
-    </div>
-    <div class="header-stat">
-      <span class="stat-label">Key Events</span>
-      <span class="stat-value" id="stat-events">0</span>
-    </div>
+    <div class="header-stat"><span class="stat-label">Active Empires</span><span class="stat-value" id="stat-empires">2</span></div>
+    <div class="header-stat"><span class="stat-label">Est. Population</span><span class="stat-value" id="stat-population">5M</span></div>
+    <div class="header-stat"><span class="stat-label">Major Cities</span><span class="stat-value" id="stat-cities">3</span></div>
+    <div class="header-stat"><span class="stat-label">Key Events</span><span class="stat-value" id="stat-events">0</span></div>
   </div>
   <div class="header-right">
     <button class="header-btn" onclick="resetView()" title="Reset map view">⟲ Reset</button>
@@ -546,7 +310,6 @@ body {
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════════ MAIN ═══ -->
 <div class="main-container">
   <div class="map-area" id="map-area">
     <div id="map"></div>
@@ -565,24 +328,20 @@ body {
     <div class="map-tooltip" id="map-tooltip"></div>
   </div>
 
-  <!-- SIDE PANEL -->
   <aside class="side-panel" id="side-panel">
     <div class="era-display" id="era-display">
       <div class="era-year" id="era-year">3000 BCE</div>
       <div class="era-label" id="era-label">The Bronze Age Dawn</div>
       <div class="era-subtitle" id="era-subtitle">Minoan civilization emerges on Crete</div>
     </div>
-
     <div class="panel-section">
       <div class="panel-title">Active Empires & Civilizations</div>
       <div id="empires-list"><div style="color:var(--text-muted);font-size:0.72rem;font-style:italic;">Loading empire data…</div></div>
     </div>
-
     <div class="panel-section">
       <div class="panel-title">Major Cities Founded</div>
       <div id="cities-list"><div style="color:var(--text-muted);font-size:0.72rem;font-style:italic;">Loading city data…</div></div>
     </div>
-
     <div class="panel-section">
       <div class="panel-title">Notable Events</div>
       <div id="events-list"><div style="color:var(--text-muted);font-size:0.72rem;font-style:italic;">Loading events…</div></div>
@@ -590,7 +349,6 @@ body {
   </aside>
 </div>
 
-<!-- ═══════════════════════════════════════════════ TIMELINE ═══ -->
 <div class="timeline-bar">
   <div class="timeline-controls">
     <button class="timeline-btn" onclick="stepBackward()" title="Step back 25 years">◀</button>
@@ -615,378 +373,422 @@ body {
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════ SCRIPTS ═══ -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 /* ═══════════════════════════════════════════════════════════
-   EUROPEAN EMPIRES SIMULATION — Data & Engine
+   EUROPEAN EMPIRES SIMULATION v2 — Multi-Phase Territories
    H Heuristics · Historical Cartography Division
+   Empires expand from core → peak → contract with lifecycle
    ═══════════════════════════════════════════════════════════ */
 
 /* ────────────────────────────────────────────────
-   EMPIRE/CIVILIZATION DATA
-   Each empire: id, name, startYear (negative=BCE), endYear, color, capital, territory polygon, type, description
-   Territories are simplified [lat,lng] polygon arrays
+   EMPIRE DATA — Each empire has core & peak territories
+   coreTerritory: small region around capital at founding
+   peakTerritory: maximum historical extent
+   The engine scales between them based on lifecycle %
    ──────────────────────────────────────────────── */
+// Helper: shorter array syntax for territory coords
+// Each territory is [[lat,lng], [lat,lng], ...]
+
 const EMPIRE_DATA = [
-  /* ===== BRONZE AGE (3000–1200 BCE) ===== */
+
+  /* ===== BRONZE AGE ===== */
   {
     id:"minoan", name:"Minoan Civilization", startYear:-3000, endYear:-1100,
-    color:"#8b6914", capital:{name:"Knossos",lat:35.298,lng:25.163},
-    territory:[[35.7,23.5],[35.7,26.5],[34.8,26.5],[34.8,23.5]],
+    color:"#8b6914", capital:"Knossos", capLat:35.298, capLng:25.163,
+    coreTerritory:[[35.7,24.8],[35.7,26.2],[34.9,26.2],[34.9,24.8]],
+    peakTerritory:[[36.5,23.5],[36.5,27.0],[34.5,27.0],[34.5,23.5],[35.2,24.5],[35.8,25.5]],
     type:"civilization", era:"bronze-age",
-    desc:"Europe's first advanced civilization — palatial complexes, Linear A script, thalassocracy dominating Aegean trade. Peak at Knossos c.1700 BCE."
+    desc:"Europe's first advanced civilization — palatial complexes, Linear A, thalassocracy."
   },
   {
     id:"mycenaean", name:"Mycenaean Civilization", startYear:-1600, endYear:-1100,
-    color:"#9b7924", capital:{name:"Mycenae",lat:37.731,lng:22.757},
-    territory:[[40.5,20.5],[40.5,24.5],[36.5,24.5],[36.5,20.5],[37.5,22.0]],
+    color:"#9b7924", capital:"Mycenae", capLat:37.731, capLng:22.757,
+    coreTerritory:[[37.9,22.4],[37.9,23.1],[37.4,23.1],[37.4,22.4]],
+    peakTerritory:[[40.8,20.5],[40.8,24.8],[36.2,24.8],[36.2,20.5],[38.0,22.5]],
     type:"civilization", era:"bronze-age",
-    desc:"Warrior society immortalized by Homer — Linear B, cyclopean walls, Lion Gate. Dominated the Aegean after Minoan decline."
+    desc:"Warrior society — Linear B, cyclopean walls, Lion Gate. Homer's Achaeans."
   },
   {
     id:"hittite", name:"Hittite Empire", startYear:-1650, endYear:-1178,
-    color:"#7b6924", capital:{name:"Hattusa",lat:40.020,lng:34.608},
-    territory:[[42.0,30.0],[42.0,38.0],[36.0,38.0],[36.0,30.0]],
+    color:"#7b6924", capital:"Hattusa", capLat:40.020, capLng:34.608,
+    coreTerritory:[[40.5,33.5],[40.5,35.5],[39.3,35.5],[39.3,33.5]],
+    peakTerritory:[[42.5,30.0],[42.5,39.0],[36.0,39.0],[36.0,30.0],[39.0,32.0]],
     type:"empire", era:"bronze-age",
-    desc:"Anatolian power rivaling Egypt — iron weapons, chariot warfare, Treaty of Kadesh (first recorded peace treaty)."
+    desc:"Anatolian power — iron weapons, chariot warfare, Treaty of Kadesh."
   },
   {
     id:"assyrian", name:"Assyrian Empire", startYear:-2025, endYear:-609,
-    color:"#9b3020", capital:{name:"Nineveh",lat:36.360,lng:43.153},
-    territory:[[38.5,35.0],[38.5,46.0],[30.0,46.0],[30.0,35.0]],
+    color:"#9b3020", capital:"Nineveh", capLat:36.360, capLng:43.153,
+    coreTerritory:[[37.0,42.0],[37.0,44.5],[35.5,44.5],[35.5,42.0]],
+    peakTerritory:[[39.0,35.0],[39.0,46.0],[29.5,46.0],[29.5,35.0],[33.0,38.0]],
     type:"empire", era:"bronze-age",
-    desc:"Mesopotamian military superpower — siege warfare, mass deportation, vast library at Nineveh. Terror as state policy."
+    desc:"Mesopotamian military superpower — siege warfare, vast library at Nineveh."
   },
   {
     id:"phoenician", name:"Phoenician City-States", startYear:-1500, endYear:-300,
-    color:"#6078a0", capital:{name:"Tyre",lat:33.271,lng:35.196},
-    territory:[[35.0,34.5],[35.0,36.5],[33.0,36.5],[33.0,34.5]],
+    color:"#6078a0", capital:"Tyre", capLat:33.271, capLng:35.196,
+    coreTerritory:[[34.0,34.8],[34.0,36.0],[33.0,36.0],[33.0,34.8]],
+    peakTerritory:[[36.0,34.0],[36.0,37.0],[32.0,37.0],[32.0,34.0],[33.5,35.5],[35.0,35.5]],
     type:"civilization", era:"bronze-age",
-    desc:"Maritime traders who gave the world the alphabet — Tyrian purple, Carthage colony, circumnavigated Africa."
+    desc:"Maritime traders — gave the world the alphabet, Tyrian purple, founded Carthage."
   },
 
-  /* ===== CLASSICAL (1200 BCE – 500 CE) ===== */
+  /* ===== CLASSICAL ===== */
   {
-    id:"greek", name:"Greek City-States / Hellenic League", startYear:-800, endYear:-146,
-    color:"#4070b0", capital:{name:"Athens",lat:37.984,lng:23.728},
-    territory:[[41.5,19.5],[41.5,28.5],[35.0,28.5],[35.0,19.5]],
+    id:"greek", name:"Greek City-States", startYear:-800, endYear:-146,
+    color:"#4070b0", capital:"Athens", capLat:37.984, capLng:23.728,
+    coreTerritory:[[38.5,23.0],[38.5,24.5],[37.5,24.5],[37.5,23.0]],
+    peakTerritory:[[41.8,19.0],[41.8,29.0],[34.5,29.0],[34.5,19.0],[36.5,20.5],[39.0,22.5],[40.5,26.0],[38.5,26.0]],
     type:"civilization", era:"classical",
-    desc:"Democracy, philosophy, tragedy, the Olympic Games — city-states from Athens to Sparta shaped Western civilization."
+    desc:"Democracy, philosophy, tragedy — Athens, Sparta, the Olympic Games."
   },
   {
-    id:"persian", name:"Achaemenid Persian Empire", startYear:-550, endYear:-330,
-    color:"#c08020", capital:{name:"Persepolis",lat:29.935,lng:52.892},
-    territory:[[43.0,25.0],[43.0,50.0],[27.0,50.0],[27.0,25.0]],
+    id:"persian", name:"Achaemenid Persia", startYear:-550, endYear:-330,
+    color:"#c08020", capital:"Persepolis", capLat:29.935, capLng:52.892,
+    coreTerritory:[[31.0,51.0],[31.0,54.0],[28.5,54.0],[28.5,51.0]],
+    peakTerritory:[[43.5,25.0],[43.5,51.0],[26.5,51.0],[26.5,25.0],[30.0,30.0],[38.0,35.0]],
     type:"empire", era:"classical",
-    desc:"World's first superpower — Cyrus the Great, Royal Road, multicultural administration. Invaded Greece twice."
+    desc:"World's first superpower — Cyrus the Great, Royal Road, invaded Greece."
   },
   {
-    id:"macedonian", name:"Macedonian Empire (Alexander)", startYear:-359, endYear:-323,
-    color:"#c85020", capital:{name:"Pella",lat:40.762,lng:22.526},
-    territory:[[43.0,15.0],[43.0,50.0],[30.0,50.0],[30.0,15.0]],
+    id:"macedonian", name:"Macedonian Empire", startYear:-359, endYear:-323,
+    color:"#c85020", capital:"Pella", capLat:40.762, capLng:22.526,
+    coreTerritory:[[41.5,22.0],[41.5,23.8],[40.0,23.8],[40.0,22.0]],
+    peakTerritory:[[43.5,15.0],[43.5,50.0],[29.5,50.0],[29.5,15.0],[33.0,20.0],[40.0,30.0]],
     type:"empire", era:"classical",
-    desc:"Alexander the Great's lightning conquest — from Greece to India in a decade. Hellenistic age follows."
+    desc:"Alexander the Great — from Greece to India in a decade."
   },
   {
     id:"carthage", name:"Carthaginian Empire", startYear:-814, endYear:-146,
-    color:"#a05030", capital:{name:"Carthage",lat:36.853,lng:10.323},
-    territory:[[39.0,7.5],[39.0,12.0],[35.5,12.0],[35.5,7.5]],
+    color:"#a05030", capital:"Carthage", capLat:36.853, capLng:10.323,
+    coreTerritory:[[37.5,9.5],[37.5,11.0],[36.2,11.0],[36.2,9.5]],
+    peakTerritory:[[39.5,7.0],[39.5,13.0],[35.0,13.0],[35.0,7.0],[36.5,9.0],[37.5,11.5]],
     type:"empire", era:"classical",
-    desc:"Phoenician colony turned Mediterranean naval power — Hannibal crossed the Alps. Destroyed by Rome."
+    desc:"Phoenician colony turned naval power — Hannibal crossed the Alps."
   },
   {
     id:"roman-republic", name:"Roman Republic", startYear:-509, endYear:-27,
-    color:"#8b2030", capital:{name:"Rome",lat:41.903,lng:12.496},
-    territory:[[45.0,6.0],[45.0,18.0],[37.0,18.0],[37.0,6.0],[41.0,12.0]],
+    color:"#8b2030", capital:"Rome", capLat:41.903, capLng:12.496,
+    coreTerritory:[[42.5,12.0],[42.5,13.5],[41.3,13.5],[41.3,12.0]],
+    peakTerritory:[[45.5,5.5],[45.5,19.0],[36.0,19.0],[36.0,5.5],[38.0,7.0],[43.0,14.0],[41.0,16.0]],
     type:"republic", era:"classical",
-    desc:"SPQR — Senate and People of Rome. From city-state to Mediterranean hegemon through the Punic Wars."
+    desc:"SPQR — from city-state to Mediterranean hegemon. Punic Wars, Caesar."
   },
   {
     id:"roman-empire", name:"Roman Empire", startYear:-27, endYear:476,
-    color:"#8b2020", capital:{name:"Rome",lat:41.903,lng:12.496},
-    territory:[[55.0,-6.0],[55.0,30.0],[30.0,30.0],[30.0,-6.0]],
+    color:"#8b2020", capital:"Rome", capLat:41.903, capLng:12.496,
+    coreTerritory:[[43.0,10.0],[43.0,15.0],[40.0,15.0],[40.0,10.0]],
+    peakTerritory:[[55.5,-6.5],[55.5,31.0],[29.5,31.0],[29.5,-6.5],[35.0,0.0],[45.0,5.0],[48.0,15.0],[42.0,18.0]],
     type:"empire", era:"classical",
-    desc:"Imperium Romanum at its height — Pax Romana, 70 million subjects, aqueducts, roads, law. The eternal empire."
+    desc:"Imperium Romanum — Pax Romana, 70M subjects, aqueducts, roads, eternal law."
   },
   {
-    id:"parthian", name:"Parthian Empire", startYear:-247, endYear:224,
-    color:"#c88830", capital:{name:"Ctesiphon",lat:33.094,lng:44.580},
-    territory:[[40.0,38.0],[40.0,55.0],[28.0,55.0],[28.0,38.0]],
+    id:"sassanid", name:"Sassanid Persia", startYear:224, endYear:651,
+    color:"#d09030", capital:"Ctesiphon", capLat:33.094, capLng:44.580,
+    coreTerritory:[[34.0,43.0],[34.0,46.0],[31.5,46.0],[31.5,43.0]],
+    peakTerritory:[[40.5,35.0],[40.5,55.0],[25.5,55.0],[25.5,35.0],[28.0,38.0],[35.0,42.0]],
     type:"empire", era:"classical",
-    desc:"Rome's eastern rival — horse archers, Silk Road middlemen, defeated Crassus at Carrhae."
-  },
-  {
-    id:"sassanid", name:"Sassanid Persian Empire", startYear:224, endYear:651,
-    color:"#d09030", capital:{name:"Ctesiphon",lat:33.094,lng:44.580},
-    territory:[[40.0,35.0],[40.0,55.0],[26.0,55.0],[26.0,35.0]],
-    type:"empire", era:"classical",
-    desc:"Last great Persian empire before Islam — Zoroastrian state, silk trade, Rome's equal in the East."
+    desc:"Last great Persian empire — Zoroastrian state, Rome's eastern rival."
   },
 
-  /* ===== EARLY MEDIEVAL / BYZANTINE (330–1000 CE) ===== */
+  /* ===== EARLY MEDIEVAL ===== */
   {
-    id:"byzantine", name:"Byzantine Empire (Eastern Roman)", startYear:330, endYear:1453,
-    color:"#702080", capital:{name:"Constantinople",lat:41.008,lng:28.978},
-    territory:[[43.0,19.0],[43.0,32.0],[35.0,32.0],[35.0,19.0]],
+    id:"byzantine", name:"Byzantine Empire", startYear:330, endYear:1453,
+    color:"#702080", capital:"Constantinople", capLat:41.008, capLng:28.978,
+    coreTerritory:[[41.8,28.0],[41.8,30.0],[40.2,30.0],[40.2,28.0]],
+    peakTerritory:[[44.0,18.0],[44.0,33.0],[34.0,33.0],[34.0,18.0],[36.5,20.0],[41.5,25.0],[42.0,30.0]],
     type:"empire", era:"byzantine",
-    desc:"The empire that refused to die — Roman law, Greek culture, Orthodox faith. Justinian, Theodora, Greek fire. Lasted 1,123 years."
+    desc:"Rome's eastern heir — Justinian, Theodora, Greek fire. Lasted 1,123 years."
   },
   {
     id:"umayyad", name:"Umayyad Caliphate", startYear:661, endYear:750,
-    color:"#208860", capital:{name:"Damascus",lat:33.513,lng:36.292},
-    territory:[[43.0,-10.0],[43.0,50.0],[28.0,50.0],[28.0,-10.0]],
+    color:"#208860", capital:"Damascus", capLat:33.513, capLng:36.292,
+    coreTerritory:[[34.5,35.0],[34.5,38.0],[32.0,38.0],[32.0,35.0]],
+    peakTerritory:[[43.0,-10.5],[43.0,50.0],[27.5,50.0],[27.5,-10.5],[32.0,-5.0],[38.0,0.0],[40.0,35.0],[33.0,38.0]],
     type:"caliphate", era:"medieval",
-    desc:"Largest Islamic empire by land — from Iberia to India. Córdoba and Damascus as centers of learning."
+    desc:"Largest Islamic empire — from Iberia to India. Córdoba and Damascus."
   },
   {
     id:"abbasid", name:"Abbasid Caliphate", startYear:750, endYear:1258,
-    color:"#28a068", capital:{name:"Baghdad",lat:33.315,lng:44.366},
-    territory:[[40.0,30.0],[40.0,52.0],[27.0,52.0],[27.0,30.0]],
+    color:"#28a068", capital:"Baghdad", capLat:33.315, capLng:44.366,
+    coreTerritory:[[34.5,43.0],[34.5,46.0],[32.0,46.0],[32.0,43.0]],
+    peakTerritory:[[40.5,30.0],[40.5,53.0],[26.5,53.0],[26.5,30.0],[30.0,35.0],[36.0,42.0]],
     type:"caliphate", era:"medieval",
-    desc:"Islamic Golden Age — House of Wisdom, algebra, astronomy. Baghdad as intellectual capital of the world."
+    desc:"Islamic Golden Age — House of Wisdom, algebra, astronomy. Baghdad's zenith."
   },
   {
-    id:"carolingian", name:"Carolingian Empire (Franks)", startYear:800, endYear:888,
-    color:"#3058a0", capital:{name:"Aachen",lat:50.776,lng:6.084},
-    territory:[[53.0,-2.0],[53.0,14.0],[43.0,14.0],[43.0,-2.0]],
+    id:"carolingian", name:"Carolingian Empire", startYear:800, endYear:888,
+    color:"#3058a0", capital:"Aachen", capLat:50.776, capLng:6.084,
+    coreTerritory:[[51.5,5.0],[51.5,7.5],[50.0,7.5],[50.0,5.0]],
+    peakTerritory:[[53.5,-3.0],[53.5,15.0],[42.5,15.0],[42.5,-3.0],[46.0,0.0],[50.0,6.0],[51.0,12.0]],
     type:"empire", era:"medieval",
-    desc:"Charlemagne crowned Holy Roman Emperor — Carolingian Renaissance, feudal foundations of medieval Europe."
+    desc:"Charlemagne crowned Emperor — Carolingian Renaissance, feudal foundations."
   },
   {
-    id:"viking", name:"Viking / Norse Kingdoms", startYear:793, endYear:1066,
-    color:"#586878", capital:{name:"Roskilde",lat:55.642,lng:12.080},
-    territory:[[63.0,5.0],[63.0,25.0],[55.0,25.0],[55.0,5.0]],
+    id:"viking", name:"Viking / Norse Realms", startYear:793, endYear:1066,
+    color:"#586878", capital:"Roskilde", capLat:55.642, capLng:12.080,
+    coreTerritory:[[56.5,10.0],[56.5,14.0],[54.5,14.0],[54.5,10.0]],
+    peakTerritory:[[63.5,4.0],[63.5,26.0],[54.0,26.0],[54.0,4.0],[57.0,8.0],[60.0,17.0]],
     type:"kingdom", era:"medieval",
-    desc:"Seafaring Norse warriors and traders — longships reached North America, raided Paris, founded Dublin and Kiev."
-  },
-  {
-    id:"bulgarian", name:"First Bulgarian Empire", startYear:681, endYear:1018,
-    color:"#508040", capital:{name:"Pliska",lat:43.386,lng:27.131},
-    territory:[[48.0,18.0],[48.0,30.0],[41.0,30.0],[41.0,18.0]],
-    type:"empire", era:"medieval",
-    desc:"Power that challenged Byzantium — Cyrillic script, Slavic liturgy. Simeon the Great's golden age."
+    desc:"Seafaring Norse — longships, Vinland, Dublin, Kiev. Raided and traded."
   },
   {
     id:"kievan-rus", name:"Kievan Rus'", startYear:882, endYear:1240,
-    color:"#406850", capital:{name:"Kiev",lat:50.450,lng:30.524},
-    territory:[[60.0,26.0],[60.0,44.0],[48.0,44.0],[48.0,26.0]],
+    color:"#406850", capital:"Kiev", capLat:50.450, capLng:30.524,
+    coreTerritory:[[51.2,29.5],[51.2,31.5],[49.5,31.5],[49.5,29.5]],
+    peakTerritory:[[60.5,26.0],[60.5,45.0],[47.5,45.0],[47.5,26.0],[50.0,30.0],[55.0,35.0]],
     type:"federation", era:"medieval",
-    desc:"Viking-founded Slavic state — Orthodox conversion under Vladimir the Great, legal code of Yaroslav the Wise."
+    desc:"Viking-founded Slavic state — Orthodox conversion under Vladimir the Great."
   },
   {
     id:"holy-roman", name:"Holy Roman Empire", startYear:962, endYear:1806,
-    color:"#4058a0", capital:{name:"Vienna (de facto)",lat:48.208,lng:16.373},
-    territory:[[54.0,3.0],[54.0,16.0],[45.0,16.0],[45.0,3.0]],
+    color:"#4058a0", capital:"Vienna", capLat:48.208, capLng:16.373,
+    coreTerritory:[[49.0,8.0],[49.0,14.0],[46.5,14.0],[46.5,8.0]],
+    peakTerritory:[[54.5,2.5],[54.5,17.0],[44.5,17.0],[44.5,2.5],[47.0,5.0],[51.0,12.0],[50.0,15.0]],
     type:"empire", era:"medieval",
-    desc:"Neither holy, nor Roman, nor an empire — Voltaire. Yet it structured Central Europe for nearly a millennium."
+    desc:"'Neither holy, nor Roman, nor an empire' — Voltaire. Structured Central Europe."
   },
   {
     id:"england", name:"Kingdom of England", startYear:927, endYear:1707,
-    color:"#a03030", capital:{name:"London",lat:51.507,lng:-0.128},
-    territory:[[56.0,-6.0],[56.0,1.5],[50.0,1.5],[50.0,-6.0]],
+    color:"#a03030", capital:"London", capLat:51.507, capLng:-0.128,
+    coreTerritory:[[52.0,-1.5],[52.0,1.0],[50.5,1.0],[50.5,-1.5]],
+    peakTerritory:[[56.0,-6.5],[56.0,2.5],[49.5,2.5],[49.5,-6.5],[51.5,-3.0],[54.0,-1.0]],
     type:"kingdom", era:"medieval",
-    desc:"From Alfred the Great to the Acts of Union — Magna Carta, Hundred Years' War, Wars of the Roses, Tudor golden age."
+    desc:"Alfred to Acts of Union — Magna Carta, Hundred Years' War, Tudor age."
   },
   {
     id:"france", name:"Kingdom of France", startYear:987, endYear:1792,
-    color:"#3058c0", capital:{name:"Paris",lat:48.857,lng:2.352},
-    territory:[[51.5,-5.0],[51.5,9.0],[42.5,9.0],[42.5,-5.0]],
+    color:"#3058c0", capital:"Paris", capLat:48.857, capLng:2.352,
+    coreTerritory:[[49.5,1.5],[49.5,4.0],[48.0,4.0],[48.0,1.5]],
+    peakTerritory:[[52.0,-5.5],[52.0,9.5],[42.0,9.5],[42.0,-5.5],[44.0,0.0],[48.5,4.0]],
     type:"kingdom", era:"medieval",
-    desc:"Capetian miracle — from Île-de-France to Europe's most powerful monarchy. Gothic cathedrals, Versailles, the Sun King."
+    desc:"Capetian miracle — Gothic cathedrals, Versailles, the Sun King."
   },
 
-  /* ===== HIGH MEDIEVAL (1000–1500 CE) ===== */
+  /* ===== HIGH MEDIEVAL ===== */
   {
     id:"venice", name:"Republic of Venice", startYear:697, endYear:1797,
-    color:"#b87040", capital:{name:"Venice",lat:45.441,lng:12.315},
-    territory:[[46.5,10.0],[46.5,14.0],[44.5,14.0],[44.5,10.0]],
+    color:"#b87040", capital:"Venice", capLat:45.441, capLng:12.315,
+    coreTerritory:[[45.8,12.0],[45.8,13.0],[45.0,13.0],[45.0,12.0]],
+    peakTerritory:[[46.8,9.0],[46.8,14.5],[44.0,14.5],[44.0,9.0],[45.0,11.0],[45.5,13.0]],
     type:"republic", era:"medieval",
-    desc:"La Serenissima — maritime republic that dominated Mediterranean trade for a millennium. Doges, Arsenal, Marco Polo."
+    desc:"La Serenissima — maritime powerhouse. Doges, Arsenal, Marco Polo."
   },
   {
-    id:"mongol", name:"Mongol Empire / Golden Horde", startYear:1206, endYear:1502,
-    color:"#886030", capital:{name:"Sarai",lat:47.234,lng:47.968},
-    territory:[[57.0,35.0],[57.0,65.0],[45.0,65.0],[45.0,35.0]],
+    id:"mongol", name:"Mongol / Golden Horde", startYear:1206, endYear:1502,
+    color:"#886030", capital:"Sarai", capLat:47.234, capLng:47.968,
+    coreTerritory:[[48.5,46.0],[48.5,50.0],[46.0,50.0],[46.0,46.0]],
+    peakTerritory:[[57.5,34.0],[57.5,66.0],[44.5,66.0],[44.5,34.0],[47.0,40.0],[52.0,50.0]],
     type:"empire", era:"medieval",
-    desc:"Largest contiguous land empire in history — Genghis Khan's conquests reshaped Eurasia. Golden Horde ruled Russia."
+    desc:"Largest contiguous land empire — Genghis Khan's conquests reshaped Eurasia."
   },
   {
     id:"ottoman", name:"Ottoman Empire", startYear:1299, endYear:1922,
-    color:"#a04040", capital:{name:"Constantinople / Istanbul",lat:41.008,lng:28.978},
-    territory:[[46.0,16.0],[46.0,44.0],[30.0,44.0],[30.0,16.0]],
+    color:"#a04040", capital:"Istanbul", capLat:41.008, capLng:28.978,
+    coreTerritory:[[41.5,28.0],[41.5,31.0],[39.5,31.0],[39.5,28.0]],
+    peakTerritory:[[47.0,15.0],[47.0,45.0],[29.5,45.0],[29.5,15.0],[32.0,20.0],[38.0,28.0],[43.0,35.0]],
     type:"empire", era:"renaissance",
-    desc:"Six-century Islamic superpower — Suleiman the Magnificent, conquest of Constantinople 1453, millet system."
+    desc:"Six-century superpower — Suleiman, conquest of Constantinople 1453, millet system."
   },
   {
     id:"polish-lithuanian", name:"Polish-Lithuanian Commonwealth", startYear:1569, endYear:1795,
-    color:"#c04038", capital:{name:"Warsaw",lat:52.230,lng:21.012},
-    territory:[[57.0,15.0],[57.0,35.0],[49.0,35.0],[49.0,15.0]],
+    color:"#c04038", capital:"Warsaw", capLat:52.230, capLng:21.012,
+    coreTerritory:[[53.0,20.0],[53.0,22.5],[51.5,22.5],[51.5,20.0]],
+    peakTerritory:[[57.5,15.0],[57.5,36.0],[48.5,36.0],[48.5,15.0],[50.0,18.0],[54.0,27.0]],
     type:"commonwealth", era:"renaissance",
-    desc:"Golden Liberty — noble democracy, religious tolerance, winged hussars. Largest state in 16th-century Europe."
+    desc:"Golden Liberty — noble democracy, winged hussars. Europe's largest state."
   },
   {
     id:"spain", name:"Spanish Empire", startYear:1492, endYear:1898,
-    color:"#c08020", capital:{name:"Madrid",lat:40.417,lng:-3.704},
-    territory:[[43.5,-10.0],[43.5,4.0],[36.0,4.0],[36.0,-10.0]],
+    color:"#c08020", capital:"Madrid", capLat:40.417, capLng:-3.704,
+    coreTerritory:[[41.0,-4.5],[41.0,-2.5],[39.5,-2.5],[39.5,-4.5]],
+    peakTerritory:[[44.0,-10.5],[44.0,4.5],[35.5,4.5],[35.5,-10.5],[37.5,-6.0],[41.0,-1.0]],
     type:"empire", era:"renaissance",
-    desc:"The empire on which the sun never set — conquistadors, silver fleets, global trade network. Golden Age of Cervantes."
-  },
-  {
-    id:"portugal", name:"Portuguese Empire", startYear:1415, endYear:1999,
-    color:"#40a878", capital:{name:"Lisbon",lat:38.722,lng:-9.139},
-    territory:[[42.2,-9.5],[42.2,-6.0],[37.0,-6.0],[37.0,-9.5]],
-    type:"empire", era:"renaissance",
-    desc:"First global maritime empire — Vasco da Gama, Brazil, Atlantic islands. Age of Discovery pioneers."
-  },
-  {
-    id:"kalmar", name:"Kalmar Union", startYear:1397, endYear:1523,
-    color:"#5070a0", capital:{name:"Copenhagen",lat:55.676,lng:12.568},
-    territory:[[71.0,4.0],[71.0,32.0],[55.0,32.0],[55.0,4.0]],
-    type:"union", era:"medieval",
-    desc:"Scandinavian union under a single monarch — Denmark, Sweden, Norway united against Hanseatic League."
-  },
-
-  /* ===== EARLY MODERN (1500–1815 CE) ===== */
-  {
-    id:"habsburg", name:"Habsburg Monarchy / Austria", startYear:1526, endYear:1918,
-    color:"#b89040", capital:{name:"Vienna",lat:48.208,lng:16.373},
-    territory:[[51.5,9.0],[51.5,25.0],[44.0,25.0],[44.0,9.0]],
-    type:"monarchy", era:"renaissance",
-    desc:"AEIOU — Austriae est imperare orbi universo. Marriage diplomacy, counter-Reformation, multinational empire."
-  },
-  {
-    id:"dutch", name:"Dutch Republic / Empire", startYear:1581, endYear:1795,
-    color:"#e08030", capital:{name:"Amsterdam",lat:52.368,lng:4.904},
-    territory:[[53.5,3.0],[53.5,7.5],[51.0,7.5],[51.0,3.0]],
-    type:"republic", era:"renaissance",
-    desc:"Golden Age of Dutch trade — VOC, stock exchange, Grotius, Rembrandt. Tiny country, global reach."
-  },
-  {
-    id:"swedish", name:"Swedish Empire", startYear:1611, endYear:1721,
-    color:"#4068b0", capital:{name:"Stockholm",lat:59.329,lng:18.069},
-    territory:[[70.0,10.0],[70.0,32.0],[55.0,32.0],[55.0,10.0]],
-    type:"empire", era:"renaissance",
-    desc:"Stormaktstiden — Baltic dominion under Gustavus Adolphus. Military revolution that reshaped European warfare."
+    desc:"The empire on which the sun never set — conquistadors, silver fleets."
   },
   {
     id:"british", name:"British Empire", startYear:1707, endYear:1997,
-    color:"#c84048", capital:{name:"London",lat:51.507,lng:-0.128},
-    territory:[[59.0,-11.0],[59.0,2.0],[50.0,2.0],[50.0,-11.0]],
+    color:"#c84048", capital:"London", capLat:51.507, capLng:-0.128,
+    coreTerritory:[[52.5,-2.0],[52.5,1.0],[50.0,1.0],[50.0,-2.0]],
+    peakTerritory:[[59.5,-11.0],[59.5,2.5],[49.5,2.5],[49.5,-11.0],[51.5,-5.0],[56.0,-1.0]],
     type:"empire", era:"colonial",
-    desc:"Largest empire in history — Pax Britannica, Industrial Revolution, rule over a quarter of humanity at its zenith."
+    desc:"Largest empire in history — Pax Britannica, Industrial Revolution."
   },
   {
     id:"russian", name:"Russian Empire", startYear:1721, endYear:1917,
-    color:"#387048", capital:{name:"St. Petersburg",lat:59.934,lng:30.335},
-    territory:[[72.0,20.0],[72.0,60.0],[44.0,60.0],[44.0,20.0]],
+    color:"#387048", capital:"St. Petersburg", capLat:59.934, capLng:30.335,
+    coreTerritory:[[60.5,29.0],[60.5,32.0],[59.0,32.0],[59.0,29.0]],
+    peakTerritory:[[72.5,19.0],[72.5,61.0],[43.5,61.0],[43.5,19.0],[50.0,30.0],[60.0,45.0],[55.0,55.0]],
     type:"empire", era:"renaissance",
-    desc:"Peter the Great's window to the West — largest contiguous empire of its era. Romanov dynasty, serfdom, Trans-Siberian Railway."
+    desc:"Peter the Great's window to the West — Romanov dynasty, Trans-Siberian."
   },
   {
-    id:"prussia", name:"Prussia / Kingdom of Prussia", startYear:1701, endYear:1871,
-    color:"#305868", capital:{name:"Berlin",lat:52.520,lng:13.405},
-    territory:[[55.5,6.0],[55.5,23.0],[50.0,23.0],[50.0,6.0]],
+    id:"prussia", name:"Kingdom of Prussia", startYear:1701, endYear:1871,
+    color:"#305868", capital:"Berlin", capLat:52.520, capLng:13.405,
+    coreTerritory:[[53.0,12.5],[53.0,14.5],[52.0,14.5],[52.0,12.5]],
+    peakTerritory:[[56.0,5.5],[56.0,23.0],[49.5,23.0],[49.5,5.5],[51.0,8.0],[53.5,14.0]],
     type:"kingdom", era:"renaissance",
-    desc:"Army with a state — Frederick the Great, military discipline, bureaucracy. Unified Germany under Bismarck."
+    desc:"Army with a state — Frederick the Great, military discipline, Bismarck."
   },
   {
-    id:"napoleonic", name:"Napoleonic French Empire", startYear:1804, endYear:1815,
-    color:"#2048b0", capital:{name:"Paris",lat:48.857,lng:2.352},
-    territory:[[53.5,-5.0],[53.5,15.0],[42.0,15.0],[42.0,-5.0]],
+    id:"napoleonic", name:"Napoleonic France", startYear:1804, endYear:1815,
+    color:"#2048b0", capital:"Paris", capLat:48.857, capLng:2.352,
+    coreTerritory:[[49.5,1.5],[49.5,4.5],[48.0,4.5],[48.0,1.5]],
+    peakTerritory:[[54.0,-5.5],[54.0,16.0],[41.5,16.0],[41.5,-5.5],[44.0,0.0],[50.0,6.0],[52.0,12.0]],
     type:"empire", era:"colonial",
-    desc:"Napoleon Bonaparte's revolutionary empire — Code Napoléon, Austerlitz, conquered most of Europe. Defeated at Waterloo."
+    desc:"Napoleon's revolutionary empire — Code Napoléon, Austerlitz, Waterloo."
   },
 
-  /* ===== MODERN (1815–2025 CE) ===== */
+  /* ===== MODERN ===== */
   {
     id:"german-empire", name:"German Empire", startYear:1871, endYear:1918,
-    color:"#404858", capital:{name:"Berlin",lat:52.520,lng:13.405},
-    territory:[[55.5,5.0],[55.5,23.0],[47.5,23.0],[47.5,5.0]],
+    color:"#404858", capital:"Berlin", capLat:52.520, capLng:13.405,
+    coreTerritory:[[53.0,12.5],[53.0,14.5],[52.0,14.5],[52.0,12.5]],
+    peakTerritory:[[56.0,4.5],[56.0,23.5],[47.0,23.5],[47.0,4.5],[49.0,6.5],[53.0,14.0],[51.0,18.0]],
     type:"empire", era:"modern",
-    desc:"Bismarck's creation — industrial powerhouse, social welfare pioneer, naval rival to Britain. Ended at Versailles 1919."
+    desc:"Bismarck's creation — industrial powerhouse, social welfare pioneer."
   },
   {
     id:"austria-hungary", name:"Austria-Hungary", startYear:1867, endYear:1918,
-    color:"#a88840", capital:{name:"Vienna",lat:48.208,lng:16.373},
-    territory:[[51.5,9.0],[51.5,26.0],[43.0,26.0],[43.0,9.0]],
+    color:"#a88840", capital:"Vienna", capLat:48.208, capLng:16.373,
+    coreTerritory:[[49.0,15.0],[49.0,18.0],[47.0,18.0],[47.0,15.0]],
+    peakTerritory:[[52.0,8.5],[52.0,26.5],[42.5,26.5],[42.5,8.5],[45.0,13.0],[48.5,20.0],[46.0,24.0]],
     type:"empire", era:"modern",
-    desc:"Dual Monarchy — Franz Joseph's multinational realm. Café culture, psychoanalysis, ethnic tensions. Dissolved 1918."
+    desc:"Dual Monarchy — café culture, psychoanalysis, ethnic tensions. 1918."
   },
   {
     id:"soviet", name:"Soviet Union (USSR)", startYear:1922, endYear:1991,
-    color:"#c83030", capital:{name:"Moscow",lat:55.756,lng:37.618},
-    territory:[[70.0,21.0],[70.0,60.0],[40.0,60.0],[40.0,21.0]],
+    color:"#c83030", capital:"Moscow", capLat:55.756, capLng:37.618,
+    coreTerritory:[[56.5,36.0],[56.5,39.0],[55.0,39.0],[55.0,36.0]],
+    peakTerritory:[[70.5,20.0],[70.5,61.0],[39.5,61.0],[39.5,20.0],[43.0,27.0],[55.0,40.0],[60.0,55.0]],
     type:"federation", era:"modern",
-    desc:"Communist superpower — Space Race, Cold War, iron curtain. From revolution to collapse in a single human lifetime."
+    desc:"Communist superpower — Space Race, Cold War. Revolution to collapse."
   },
   {
-    id:"nazi-germany", name:"Nazi Germany (Third Reich)", startYear:1933, endYear:1945,
-    color:"#404040", capital:{name:"Berlin",lat:52.520,lng:13.405},
-    territory:[[55.0,5.0],[55.0,23.0],[47.0,23.0],[47.0,5.0]],
+    id:"nazi-germany", name:"Nazi Germany", startYear:1933, endYear:1945,
+    color:"#404040", capital:"Berlin", capLat:52.520, capLng:13.405,
+    coreTerritory:[[53.0,12.5],[53.0,14.5],[52.0,14.5],[52.0,12.5]],
+    peakTerritory:[[55.5,4.5],[55.5,24.0],[46.5,24.0],[46.5,4.5],[49.0,7.0],[53.0,16.0]],
     type:"dictatorship", era:"modern",
-    desc:"Twelve-year Reich — WWII unleashed, Holocaust, totalitarian horror. Defeated 1945; Europe remade in its aftermath."
+    desc:"Twelve-year Reich — WWII, Holocaust. Defeated 1945."
   },
   {
     id:"eu", name:"European Union", startYear:1993, endYear:2025,
-    color:"#2058c0", capital:{name:"Brussels",lat:50.847,lng:4.352},
-    territory:[[60.0,-10.0],[60.0,30.0],[36.0,30.0],[36.0,-10.0]],
+    color:"#2058c0", capital:"Brussels", capLat:50.847, capLng:4.352,
+    coreTerritory:[[51.5,3.0],[51.5,6.0],[50.0,6.0],[50.0,3.0]],
+    peakTerritory:[[60.5,-10.5],[60.5,31.0],[35.5,31.0],[35.5,-10.5],[40.0,-5.0],[50.0,5.0],[55.0,20.0],[48.0,25.0]],
     type:"union", era:"modern",
-    desc:"From coal and steel to 27 nations — single market, single currency, unprecedented peace project. Maastricht to present."
+    desc:"27 nations — single market, single currency, unprecedented peace project."
+  },
+
+  /* ===== More Medieval & Early Modern ===== */
+  {
+    id:"bulgarian", name:"First Bulgarian Empire", startYear:681, endYear:1018,
+    color:"#508040", capital:"Pliska", capLat:43.386, capLng:27.131,
+    coreTerritory:[[44.0,26.0],[44.0,28.5],[42.5,28.5],[42.5,26.0]],
+    peakTerritory:[[48.5,18.0],[48.5,31.0],[40.5,31.0],[40.5,18.0],[43.0,22.0],[46.0,28.0]],
+    type:"empire", era:"medieval",
+    desc:"Challenged Byzantium — Cyrillic script, Simeon the Great's golden age."
+  },
+  {
+    id:"portugal", name:"Portuguese Empire", startYear:1415, endYear:1999,
+    color:"#40a878", capital:"Lisbon", capLat:38.722, capLng:-9.139,
+    coreTerritory:[[39.5,-9.5],[39.5,-8.0],[37.5,-8.0],[37.5,-9.5]],
+    peakTerritory:[[42.5,-10.0],[42.5,-6.0],[36.5,-6.0],[36.5,-10.0],[38.0,-9.0],[41.0,-7.5]],
+    type:"empire", era:"renaissance",
+    desc:"First global maritime empire — Vasco da Gama, Brazil, Age of Discovery."
+  },
+  {
+    id:"kalmar", name:"Kalmar Union", startYear:1397, endYear:1523,
+    color:"#5070a0", capital:"Copenhagen", capLat:55.676, capLng:12.568,
+    coreTerritory:[[56.5,11.0],[56.5,14.0],[55.0,14.0],[55.0,11.0]],
+    peakTerritory:[[71.5,3.5],[71.5,33.0],[54.5,33.0],[54.5,3.5],[58.0,8.0],[64.0,15.0]],
+    type:"union", era:"medieval",
+    desc:"Scandinavian union — Denmark, Sweden, Norway against Hanseatic League."
+  },
+  {
+    id:"habsburg", name:"Habsburg Monarchy", startYear:1526, endYear:1918,
+    color:"#b89040", capital:"Vienna", capLat:48.208, capLng:16.373,
+    coreTerritory:[[49.0,15.0],[49.0,18.0],[47.0,18.0],[47.0,15.0]],
+    peakTerritory:[[52.0,8.5],[52.0,26.5],[44.0,26.5],[44.0,8.5],[46.0,12.0],[49.5,20.0]],
+    type:"monarchy", era:"renaissance",
+    desc:"AEIOU — marriage diplomacy over war. Counter-Reformation stronghold."
+  },
+  {
+    id:"dutch", name:"Dutch Republic", startYear:1581, endYear:1795,
+    color:"#e08030", capital:"Amsterdam", capLat:52.368, capLng:4.904,
+    coreTerritory:[[52.8,4.0],[52.8,5.5],[52.0,5.5],[52.0,4.0]],
+    peakTerritory:[[53.8,2.5],[53.8,7.5],[50.5,7.5],[50.5,2.5],[51.5,4.0],[52.5,5.5]],
+    type:"republic", era:"renaissance",
+    desc:"Golden Age — VOC, stock exchange, Grotius, Rembrandt. Global reach."
+  },
+  {
+    id:"swedish", name:"Swedish Empire", startYear:1611, endYear:1721,
+    color:"#4068b0", capital:"Stockholm", capLat:59.329, capLng:18.069,
+    coreTerritory:[[60.0,17.0],[60.0,19.5],[58.5,19.5],[58.5,17.0]],
+    peakTerritory:[[70.5,9.5],[70.5,33.0],[54.5,33.0],[54.5,9.5],[58.0,13.0],[63.0,22.0],[61.0,30.0]],
+    type:"empire", era:"renaissance",
+    desc:"Stormaktstiden — Baltic dominion under Gustavus Adolphus."
+  },
+  {
+    id:"parthian", name:"Parthian Empire", startYear:-247, endYear:224,
+    color:"#c88830", capital:"Ctesiphon", capLat:33.094, capLng:44.580,
+    coreTerritory:[[34.0,43.0],[34.0,46.0],[31.5,46.0],[31.5,43.0]],
+    peakTerritory:[[40.5,37.0],[40.5,56.0],[27.5,56.0],[27.5,37.0],[30.0,42.0],[35.0,50.0]],
+    type:"empire", era:"classical",
+    desc:"Rome's eastern rival — horse archers. Defeated Crassus at Carrhae."
   }
 ];
 
 /* ────────────────────────────────────────────────
-   MAJOR CITIES DATA
+   CITIES DATA
    ──────────────────────────────────────────────── */
 const CITIES_DATA = [
-  { name:"Knossos", lat:35.298, lng:25.163, founded:-1900, significance:"Minoan palace complex; Europe's oldest city" },
-  { name:"Athens", lat:37.984, lng:23.728, founded:-3000, significance:"Birthplace of democracy; Parthenon" },
-  { name:"Rome", lat:41.903, lng:12.496, founded:-753, significance:"Caput Mundi; Eternal City; Roman Empire capital" },
-  { name:"Constantinople / Istanbul", lat:41.008, lng:28.978, founded:-660, significance:"Crossroads of empires for 1,600 years" },
-  { name:"Alexandria", lat:31.200, lng:29.918, founded:-331, significance:"Alexander's great port; Library and Lighthouse" },
-  { name:"Carthage", lat:36.853, lng:10.323, founded:-814, significance:"Phoenician trading empire; Hannibal's capital" },
-  { name:"Babylon", lat:32.536, lng:44.421, founded:-2300, significance:"Mesopotamian wonder; Hanging Gardens" },
-  { name:"Jerusalem", lat:31.768, lng:35.214, founded:-3000, significance:"Holy city for three faiths" },
-  { name:"Paris", lat:48.857, lng:2.352, founded:-250, significance:"Lutetia to City of Light; cultural capital" },
-  { name:"London", lat:51.507, lng:-0.128, founded:43, significance:"Londinium to global financial center" },
-  { name:"Venice", lat:45.441, lng:12.315, founded:421, significance:"La Serenissima; maritime republic" },
-  { name:"Aachen", lat:50.776, lng:6.084, founded:100, significance:"Charlemagne's capital; coronation city" },
-  { name:"Córdoba", lat:37.888, lng:-4.779, founded:-152, significance:"Islamic Golden Age; largest city in Europe c.1000 CE" },
-  { name:"Kiev", lat:50.450, lng:30.524, founded:482, significance:"Mother of Rus' cities; Orthodox cradle" },
-  { name:"Moscow", lat:55.756, lng:37.618, founded:1147, significance:"Third Rome; Kremlin; Soviet capital" },
-  { name:"Vienna", lat:48.208, lng:16.373, founded:-500, significance:"Habsburg seat; music capital of Europe" },
-  { name:"Berlin", lat:52.520, lng:13.405, founded:1237, significance:"Prussian and German capital; Cold War frontline" },
-  { name:"Madrid", lat:40.417, lng:-3.704, founded:865, significance:"Spanish imperial capital; Golden Age" },
-  { name:"Lisbon", lat:38.722, lng:-9.139, founded:-1200, significance:"Age of Discovery launch point" },
-  { name:"Amsterdam", lat:52.368, lng:4.904, founded:1275, significance:"Dutch Golden Age; global trade hub" },
-  { name:"Prague", lat:50.076, lng:14.438, founded:885, significance:"Holy Roman Empire seat; Charles University (1348)" },
-  { name:"Stockholm", lat:59.329, lng:18.069, founded:1252, significance:"Swedish Empire capital; Baltic power" },
-  { name:"Warsaw", lat:52.230, lng:21.012, founded:1300, significance:"Polish-Lithuanian Commonwealth capital" },
-  { name:"Budapest", lat:47.498, lng:19.040, founded:89, significance:"Aquincum to Austro-Hungarian co-capital" },
-  { name:"Brussels", lat:50.847, lng:4.352, founded:979, significance:"De facto EU capital; NATO headquarters" },
-  { name:"Dublin", lat:53.350, lng:-6.260, founded:841, significance:"Viking-founded; Norman stronghold" },
-  { name:"Oslo", lat:59.914, lng:10.752, founded:1040, significance:"Norse trading post; Viking ship burials" },
-  { name:"Copenhagen", lat:55.676, lng:12.568, founded:1167, significance:"Kalmar Union; Baltic trade" },
-  { name:"Belgrade", lat:44.787, lng:20.449, founded:-269, significance:"Singidunum; Balkan crossroads" },
-  { name:"Baghdad", lat:33.315, lng:44.366, founded:762, significance:"Abbasid capital; House of Wisdom" },
-  { name:"Damascus", lat:33.513, lng:36.292, founded:-6000, significance:"Oldest continuously inhabited city" },
-  { name:"Florence", lat:43.770, lng:11.258, founded:-59, significance:"Renaissance birthplace; Medici rule" }
+  { name:"Knossos", lat:35.298, lng:25.163, founded:-1900, sig:"Minoan palace" },
+  { name:"Athens", lat:37.984, lng:23.728, founded:-3000, sig:"Birthplace of democracy" },
+  { name:"Rome", lat:41.903, lng:12.496, founded:-753, sig:"Eternal City" },
+  { name:"Constantinople", lat:41.008, lng:28.978, founded:-660, sig:"Crossroads of empires" },
+  { name:"Alexandria", lat:31.200, lng:29.918, founded:-331, sig:"Great Library" },
+  { name:"Carthage", lat:36.853, lng:10.323, founded:-814, sig:"Hannibal's capital" },
+  { name:"Babylon", lat:32.536, lng:44.421, founded:-2300, sig:"Hanging Gardens" },
+  { name:"Jerusalem", lat:31.768, lng:35.214, founded:-3000, sig:"Holy city" },
+  { name:"Paris", lat:48.857, lng:2.352, founded:-250, sig:"City of Light" },
+  { name:"London", lat:51.507, lng:-0.128, founded:43, sig:"Global financial center" },
+  { name:"Venice", lat:45.441, lng:12.315, founded:421, sig:"La Serenissima" },
+  { name:"Aachen", lat:50.776, lng:6.084, founded:100, sig:"Charlemagne's seat" },
+  { name:"Córdoba", lat:37.888, lng:-4.779, founded:-152, sig:"Islamic Golden Age" },
+  { name:"Kiev", lat:50.450, lng:30.524, founded:482, sig:"Mother of Rus'" },
+  { name:"Moscow", lat:55.756, lng:37.618, founded:1147, sig:"Third Rome" },
+  { name:"Vienna", lat:48.208, lng:16.373, founded:-500, sig:"Music capital" },
+  { name:"Berlin", lat:52.520, lng:13.405, founded:1237, sig:"Cold War frontline" },
+  { name:"Madrid", lat:40.417, lng:-3.704, founded:865, sig:"Imperial capital" },
+  { name:"Lisbon", lat:38.722, lng:-9.139, founded:-1200, sig:"Age of Discovery" },
+  { name:"Amsterdam", lat:52.368, lng:4.904, founded:1275, sig:"Dutch Golden Age" },
+  { name:"Prague", lat:50.076, lng:14.438, founded:885, sig:"HRE seat" },
+  { name:"Stockholm", lat:59.329, lng:18.069, founded:1252, sig:"Baltic power" },
+  { name:"Warsaw", lat:52.230, lng:21.012, founded:1300, sig:"Commonwealth capital" },
+  { name:"Budapest", lat:47.498, lng:19.040, founded:89, sig:"Danube pearl" },
+  { name:"Brussels", lat:50.847, lng:4.352, founded:979, sig:"EU capital" },
+  { name:"Dublin", lat:53.350, lng:-6.260, founded:841, sig:"Viking-founded" },
+  { name:"Oslo", lat:59.914, lng:10.752, founded:1040, sig:"Viking heritage" },
+  { name:"Copenhagen", lat:55.676, lng:12.568, founded:1167, sig:"Kalmar Union" },
+  { name:"Belgrade", lat:44.787, lng:20.449, founded:-269, sig:"Balkan crossroads" },
+  { name:"Baghdad", lat:33.315, lng:44.366, founded:762, sig:"House of Wisdom" },
+  { name:"Damascus", lat:33.513, lng:36.292, founded:-6000, sig:"Oldest city" },
+  { name:"Florence", lat:43.770, lng:11.258, founded:-59, sig:"Renaissance birthplace" }
 ];
 
 /* ────────────────────────────────────────────────
-   POPULATION ESTIMATES (Europe, in millions)
-   Approximate historical estimates
+   POPULATION DATA (Europe, millions)
    ──────────────────────────────────────────────── */
 const POPULATION_DATA = {};
-// BCE
 [-3000,-2900,-2800,-2700,-2600,-2500,-2400,-2300,-2200,-2100,-2000,-1950,-1900,-1850,-1800,-1750,-1700,-1650,-1600,-1550,-1500,-1450,-1400,-1350,-1300,-1250,-1200,-1150,-1100,-1050,-1000,-950,-900,-850,-800,-750,-700,-650,-600,-550,-500,-450,-400,-350,-300,-250,-200,-150,-100,-50,0].forEach(y => {
   if (y < -2000) POPULATION_DATA[y] = Math.round((1.5 + (y+3000)/1000*3.5)*10)/10;
   else if (y < -1000) POPULATION_DATA[y] = Math.round((5 + (y+2000)/1000*5)*10)/10;
   else if (y < -500) POPULATION_DATA[y] = Math.round((10 + (y+1000)/500*5)*10)/10;
   else if (y < 0) POPULATION_DATA[y] = Math.round((18 + (y+500)/500*7)*10)/10;
 });
-// CE
 [0,25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,525,550,575,600,625,650,675,700,725,750,775,800,825,850,875,900,925,950,975,1000,1025,1050,1075,1100,1125,1150,1175,1200,1225,1250,1275,1300,1325,1350,1375,1400,1425,1450,1475,1500,1525,1550,1575,1600,1625,1650,1675,1700,1725,1750,1775,1800,1825,1850,1875,1900,1925,1950,1975,2000,2025].forEach(y => {
   if (y <= 200) POPULATION_DATA[y] = Math.round((35 + y/200*20)*10)/10;
   else if (y <= 500) POPULATION_DATA[y] = Math.round((55 - (y-200)/300*25)*10)/10;
@@ -1007,124 +809,194 @@ const POPULATION_DATA = {};
    HISTORICAL EVENTS
    ──────────────────────────────────────────────── */
 const HISTORICAL_EVENTS = [
-  { year:-3000, title:"Minoan Civilization Emerges", desc:"Bronze Age dawns on Crete — Europe's first literate civilization builds palace at Knossos.", category:"Found" },
-  { year:-2600, title:"Great Pyramid of Giza", desc:"Old Kingdom Egypt reaches architectural zenith; indirect Mediterranean trade networks established.", category:"Culture" },
-  { year:-2000, title:"Indo-European Migrations", desc:"Proto-Greek, Italic, Celtic, Germanic, and Slavic speakers begin dispersing across Europe.", category:"Culture" },
+  { year:-3000, title:"Minoan Civilization Emerges", desc:"Bronze Age dawns on Crete — Europe's first literate civilization builds Knossos.", category:"Found" },
+  { year:-2000, title:"Indo-European Migrations", desc:"Proto-Greek, Italic, Celtic, Germanic, and Slavic speakers disperse across Europe.", category:"Culture" },
   { year:-1750, title:"Hammurabi's Code", desc:"Babylonian legal revolution — lex talionis influences Mediterranean legal traditions.", category:"Politics" },
-  { year:-1600, title:"Mycenaean Ascendancy", desc:"Warrior culture dominates Aegean; Linear B script; Lion Gate at Mycenae built.", category:"Culture" },
-  { year:-1450, title:"Minoan Eruption / Decline", desc:"Thera (Santorini) eruption devastates Minoans; Mycenaeans take control of Knossos.", category:"War" },
-  { year:-1274, title:"Battle of Kadesh", desc:"Largest chariot battle in history — Hittites vs. Egyptians fight to a standstill.", category:"War" },
-  { year:-1200, title:"Bronze Age Collapse", desc:"Sea Peoples, earthquakes, and systemic collapse destroy Mycenaean, Hittite, and other civilizations.", category:"War" },
-  { year:-1100, title:"Greek Dark Ages Begin", desc:"Writing lost; palace economy collapses; Homeric oral tradition preserves memory of Myceneans.", category:"Culture" },
-  { year:-814, title:"Carthage Founded", desc:"Phoenician colony founded at strategic Mediterranean crossroads by Queen Dido.", category:"Found" },
+  { year:-1600, title:"Mycenaean Ascendancy", desc:"Warrior culture dominates the Aegean — Linear B script in use.", category:"Culture" },
+  { year:-1450, title:"Thera Eruption / Minoan Decline", desc:"Santorini eruption devastates Minoans; Mycenaeans take Knossos.", category:"War" },
+  { year:-1274, title:"Battle of Kadesh", desc:"Largest chariot battle in history — Hittites vs. Egyptians.", category:"War" },
+  { year:-1200, title:"Bronze Age Collapse", desc:"Sea Peoples, earthquakes destroy Mycenaean, Hittite civilizations.", category:"War" },
+  { year:-1100, title:"Greek Dark Ages Begin", desc:"Writing lost; palace economy collapses; Homeric tradition preserves memory.", category:"Culture" },
+  { year:-814, title:"Carthage Founded", desc:"Phoenician colony at strategic Mediterranean crossroads.", category:"Found" },
   { year:-776, title:"First Olympic Games", desc:"Sacred truce at Olympia marks beginning of recorded Greek history.", category:"Culture" },
-  { year:-753, title:"Rome Founded", desc:"Romulus and Remus — the Eternal City is born on seven hills by the Tiber.", category:"Found" },
-  { year:-508, title:"Athenian Democracy", desc:"Cleisthenes reforms establish world's first democracy — citizens govern themselves.", category:"Politics" },
-  { year:-490, title:"Battle of Marathon", desc:"Athens repels Persian invasion; Pheidippides' legendary 26-mile run.", category:"War" },
-  { year:-480, title:"Battle of Thermopylae", desc:"300 Spartans hold the pass; Athens burned. Salamis turns the tide against Persia.", category:"War" },
-  { year:-431, title:"Peloponnesian War", desc:"Athens vs. Sparta — 27-year conflict exhausts the Greek world; Thucydides chronicles.", category:"War" },
-  { year:-336, title:"Alexander the Great", desc:"Macedonian prodigy conquers from Greece to India in a decade; Hellenistic age dawns.", category:"War" },
-  { year:-264, title:"First Punic War", desc:"Rome and Carthage clash for Sicily; Rome becomes a naval power.", category:"War" },
-  { year:-218, title:"Hannibal Crosses the Alps", desc:"Carthaginian elephants descend into Italy; Cannae annihilates 70,000 Romans.", category:"War" },
-  { year:-146, title:"Carthage & Corinth Destroyed", desc:"Rome levels both cities the same year — Mediterranean now a Roman lake.", category:"War" },
-  { year:-44, title:"Julius Caesar Assassinated", desc:"Ides of March — Roman Republic's death knell; civil war follows.", category:"Politics" },
-  { year:-27, title:"Roman Empire Established", desc:"Octavian becomes Augustus — Pax Romana begins; the Principate is born.", category:"Found" },
-  { year:43, title:"Roman Conquest of Britain", desc:"Claudius invades; Londinium founded. Britain becomes imperial province.", category:"War" },
-  { year:79, title:"Destruction of Pompeii", desc:"Vesuvius erupts, burying Pompeii and Herculaneum — preserving a Roman time capsule.", category:"Culture" },
-  { year:122, title:"Hadrian's Wall Built", desc:"Rome's northern frontier fixed across Britain — 73-mile defensive fortification.", category:"Politics" },
-  { year:180, title:"Marcus Aurelius Dies", desc:"End of the Five Good Emperors; Pax Romana unravels. Gibbon's turning point.", category:"Politics" },
-  { year:293, title:"Tetrarchy Established", desc:"Diocletian splits the Empire — rule of four. Administrative revolution.", category:"Politics" },
-  { year:313, title:"Edict of Milan", desc:"Constantine legalizes Christianity — Rome's religious transformation begins.", category:"Politics" },
-  { year:330, title:"Constantinople Dedicated", desc:"New Rome on the Bosphorus — empire's center of gravity shifts east.", category:"Found" },
-  { year:410, title:"Sack of Rome", desc:"Alaric's Visigoths breach the Eternal City for the first time in 800 years.", category:"War" },
-  { year:476, title:"Fall of Western Rome", desc:"Odoacer deposes Romulus Augustulus — traditional date for the end of antiquity.", category:"War" },
-  { year:527, title:"Justinian the Great", desc:"Byzantine zenith — Hagia Sophia, Corpus Juris Civilis, reconquest of Africa and Italy.", category:"Culture" },
-  { year:541, title:"Plague of Justinian", desc:"First bubonic plague pandemic kills 25-50 million across Mediterranean.", category:"Culture" },
-  { year:622, title:"Hijra — Rise of Islam", desc:"Prophet Muhammad's flight to Medina begins Islamic calendar; Arab conquests follow.", category:"Culture" },
-  { year:711, title:"Umayyad Conquest of Spain", desc:"Tariq ibn Ziyad crosses Gibraltar — Al-Andalus flourishes for seven centuries.", category:"War" },
-  { year:732, title:"Battle of Tours", desc:"Charles Martel halts Umayyad advance into Francia — 'The Hammer' saves Europe.", category:"War" },
-  { year:800, title:"Charlemagne Crowned Emperor", desc:"Frankish king crowned Imperator Romanorum by the Pope — Carolingian Renaissance.", category:"Found" },
-  { year:843, title:"Treaty of Verdun", desc:"Carolingian Empire partitioned into three — the seed of France, Germany, and the middle realm.", category:"Politics" },
-  { year:988, title:"Christianization of Rus'", desc:"Vladimir the Great baptizes Kiev — Orthodox Christianity spreads east.", category:"Culture" },
-  { year:1054, title:"Great Schism", desc:"Eastern Orthodox and Roman Catholic churches formally split — lasting division.", category:"Culture" },
-  { year:1066, title:"Norman Conquest of England", desc:"William the Conqueror wins at Hastings — French-speaking Norman aristocracy reshapes England.", category:"War" },
-  { year:1096, title:"First Crusade", desc:"Western knights capture Jerusalem; Crusader states established in the Levant.", category:"War" },
-  { year:1204, title:"Fourth Crusade Sacks Constantinople", desc:"Crusaders betray Byzantium — empire fatally weakened and fragmented.", category:"War" },
-  { year:1215, title:"Magna Carta", desc:"King John forced to accept rule of law — foundation of constitutional government.", category:"Politics" },
-  { year:1241, title:"Mongol Invasion of Europe", desc:"Batu Khan devastates Hungary and Poland — only Ögedei's death halts the Golden Horde.", category:"War" },
-  { year:1347, title:"Black Death Arrives", desc:"Bubonic plague kills 30-60% of Europe's population — social order transformed.", category:"Culture" },
-  { year:1453, title:"Fall of Constantinople", desc:"Mehmed II conquers the city — end of the Roman Empire after 2,206 years.", category:"War" },
-  { year:1455, title:"Gutenberg Bible Printed", desc:"Movable type revolution begins — information age of the Renaissance.", category:"Science" },
-  { year:1492, title:"Columbus Reaches Americas", desc:"Reconquista completed and New World discovered — Spain becomes global power.", category:"Found" },
-  { year:1517, title:"Luther's 95 Theses", desc:"Protestant Reformation launched — Christendom permanently divided.", category:"Culture" },
-  { year:1588, title:"Spanish Armada Defeated", desc:"Elizabethan England defeats Spain's 'Invincible Armada' — rise of British sea power.", category:"War" },
-  { year:1618, title:"Thirty Years' War", desc:"Europe's most destructive religious war — Westphalia creates modern state system.", category:"War" },
-  { year:1683, title:"Battle of Vienna", desc:"Ottoman siege broken by Sobieski's winged hussars — high-water mark of Ottoman Europe.", category:"War" },
-  { year:1707, title:"Acts of Union", desc:"England and Scotland unite as Great Britain — a new power is born.", category:"Politics" },
-  { year:1789, title:"French Revolution", desc:"Liberté, égalité, fraternité — absolute monarchy overthrown; Europe remade.", category:"Politics" },
-  { year:1805, title:"Battle of Trafalgar", desc:"Nelson destroys Franco-Spanish fleet — British naval supremacy for a century.", category:"War" },
-  { year:1812, title:"Napoleon's Invasion of Russia", desc:"Grande Armée destroyed by Russian winter — beginning of the end for Napoleon.", category:"War" },
-  { year:1815, title:"Congress of Vienna", desc:"Post-Napoleonic settlement — Metternich's conservative order; century of relative peace.", category:"Politics" },
-  { year:1848, title:"Spring of Nations", desc:"Revolutionary wave sweeps Europe — nationalism, liberalism, socialism emerge.", category:"Politics" },
-  { year:1861, title:"Unification of Italy", desc:"Risorgimento complete — Italy re-emerges as unified state after 1,300 years.", category:"Politics" },
-  { year:1871, title:"Unification of Germany", desc:"Bismarck's Realpolitik creates German Empire — balance of power transformed.", category:"Politics" },
-  { year:1914, title:"World War I — Assassination at Sarajevo", desc:"Gavrilo Princip kills Archduke Franz Ferdinand — the lamps go out across Europe.", category:"War" },
-  { year:1917, title:"Russian Revolution", desc:"Tsar overthrown — Bolsheviks seize power; Soviet Union is born.", category:"Politics" },
-  { year:1918, title:"WWI Armistice", desc:"Four empires fall — German, Austro-Hungarian, Ottoman, and Russian. Europe's map redrawn.", category:"War" },
-  { year:1933, title:"Hitler Becomes Chancellor", desc:"Nazi seizure of power — democratic Weimar Republic collapses into dictatorship.", category:"Politics" },
-  { year:1939, title:"World War II Begins", desc:"Nazi invasion of Poland — the deadliest conflict in human history engulfs Europe.", category:"War" },
-  { year:1942, title:"Battle of Stalingrad", desc:"Turning point — Soviet Red Army destroys German 6th Army; Nazi advance reversed.", category:"War" },
-  { year:1944, title:"D-Day — Normandy Landings", desc:"Allies liberate Western Europe — largest amphibious invasion in history.", category:"War" },
-  { year:1945, title:"WWII Ends — Holocaust Revealed", desc:"VE Day — Nazi Germany defeated; full horror of the Holocaust exposed.", category:"War" },
-  { year:1950, title:"Schuman Declaration", desc:"French-German coal and steel pooling — seed of the European Union.", category:"Politics" },
-  { year:1957, title:"Treaty of Rome", desc:"European Economic Community founded — the Six begin integration.", category:"Politics" },
-  { year:1961, title:"Berlin Wall Erected", desc:"Cold War division made concrete — symbol of the Iron Curtain.", category:"Politics" },
-  { year:1989, title:"Fall of the Berlin Wall", desc:"Peaceful revolutions sweep Eastern Europe — Cold War ends without a shot.", category:"Politics" },
-  { year:1991, title:"Collapse of the Soviet Union", desc:"Soviet empire dissolved — 15 new republics; Russia emerges as successor.", category:"Politics" },
-  { year:1993, title:"Maastricht Treaty — EU Founded", desc:"European Union established — single market, single currency vision.", category:"Found" },
-  { year:1999, title:"Euro Currency Introduced", desc:"Common European currency launched — economic integration deepens.", category:"Politics" },
-  { year:2004, title:"EU Eastern Enlargement", desc:"Ten new members join — the reunification of Europe after Cold War division.", category:"Politics" },
-  { year:2008, title:"Global Financial Crisis", desc:"Lehman Brothers collapse triggers Great Recession — Eurozone debt crisis follows.", category:"Politics" },
-  { year:2016, title:"Brexit Referendum", desc:"UK votes to leave the EU — first member state to exit the union.", category:"Politics" },
-  { year:2020, title:"COVID-19 Pandemic", desc:"Global pandemic reshapes European society, economy, and public health systems.", category:"Culture" },
-  { year:2022, title:"Russian Invasion of Ukraine", desc:"Largest European war since 1945 — NATO expansion, energy crisis, refugee surge.", category:"War" },
-  { year:2025, title:"Europe in 2025", desc:"27-member EU navigates AI revolution, energy transition, strategic autonomy, and geopolitical realignment.", category:"Politics" }
+  { year:-753, title:"Rome Founded", desc:"Romulus and Remus — the Eternal City born on seven hills.", category:"Found" },
+  { year:-508, title:"Athenian Democracy", desc:"Cleisthenes reforms — world's first democracy established.", category:"Politics" },
+  { year:-490, title:"Battle of Marathon", desc:"Athens repels Persian invasion; Pheidippides' legendary run.", category:"War" },
+  { year:-480, title:"Battle of Thermopylae", desc:"300 Spartans hold the pass; Salamis turns the tide.", category:"War" },
+  { year:-431, title:"Peloponnesian War", desc:"Athens vs. Sparta — 27-year conflict exhausts the Greek world.", category:"War" },
+  { year:-336, title:"Alexander the Great", desc:"Macedonian prodigy conquers from Greece to India.", category:"War" },
+  { year:-264, title:"First Punic War", desc:"Rome and Carthage clash for Sicily; Rome becomes naval power.", category:"War" },
+  { year:-218, title:"Hannibal Crosses the Alps", desc:"Carthaginian elephants descend into Italy.", category:"War" },
+  { year:-146, title:"Carthage & Corinth Destroyed", desc:"Rome levels both cities — Mediterranean now a Roman lake.", category:"War" },
+  { year:-44, title:"Caesar Assassinated", desc:"Ides of March — Roman Republic's death knell.", category:"Politics" },
+  { year:-27, title:"Roman Empire Established", desc:"Octavian becomes Augustus — Pax Romana begins.", category:"Found" },
+  { year:43, title:"Roman Conquest of Britain", desc:"Claudius invades; Londinium founded.", category:"War" },
+  { year:79, title:"Destruction of Pompeii", desc:"Vesuvius erupts, preserving a Roman time capsule.", category:"Culture" },
+  { year:122, title:"Hadrian's Wall Built", desc:"Rome's northern frontier fixed across Britain.", category:"Politics" },
+  { year:293, title:"Tetrarchy Established", desc:"Diocletian splits the Empire — rule of four.", category:"Politics" },
+  { year:313, title:"Edict of Milan", desc:"Constantine legalizes Christianity.", category:"Politics" },
+  { year:330, title:"Constantinople Dedicated", desc:"New Rome on the Bosphorus.", category:"Found" },
+  { year:410, title:"Sack of Rome", desc:"Alaric's Visigoths breach the Eternal City.", category:"War" },
+  { year:476, title:"Fall of Western Rome", desc:"Odoacer deposes Romulus Augustulus — end of antiquity.", category:"War" },
+  { year:527, title:"Justinian the Great", desc:"Hagia Sophia, Corpus Juris Civilis, reconquest of Africa and Italy.", category:"Culture" },
+  { year:622, title:"Rise of Islam — Hijra", desc:"Prophet Muhammad's flight to Medina; Arab conquests follow.", category:"Culture" },
+  { year:711, title:"Umayyad Conquest of Spain", desc:"Tariq crosses Gibraltar — Al-Andalus flourishes.", category:"War" },
+  { year:732, title:"Battle of Tours", desc:"Charles Martel halts Umayyad advance into Francia.", category:"War" },
+  { year:800, title:"Charlemagne Crowned Emperor", desc:"Frankish king crowned Imperator Romanorum.", category:"Found" },
+  { year:843, title:"Treaty of Verdun", desc:"Carolingian Empire partitioned — seed of France, Germany.", category:"Politics" },
+  { year:988, title:"Christianization of Rus'", desc:"Vladimir the Great baptizes Kiev.", category:"Culture" },
+  { year:1054, title:"Great Schism", desc:"Eastern Orthodox and Roman Catholic churches formally split.", category:"Culture" },
+  { year:1066, title:"Norman Conquest", desc:"William the Conqueror wins at Hastings.", category:"War" },
+  { year:1096, title:"First Crusade", desc:"Western knights capture Jerusalem.", category:"War" },
+  { year:1204, title:"Fourth Crusade Sacks Constantinople", desc:"Crusaders betray Byzantium.", category:"War" },
+  { year:1215, title:"Magna Carta", desc:"King John forced to accept rule of law.", category:"Politics" },
+  { year:1241, title:"Mongol Invasion of Europe", desc:"Batu Khan devastates Hungary and Poland.", category:"War" },
+  { year:1347, title:"Black Death Arrives", desc:"Plague kills 30-60% of Europe's population.", category:"Culture" },
+  { year:1453, title:"Fall of Constantinople", desc:"Mehmed II conquers the city — end of Roman Empire.", category:"War" },
+  { year:1455, title:"Gutenberg Bible Printed", desc:"Movable type revolution begins.", category:"Science" },
+  { year:1492, title:"Columbus Reaches Americas", desc:"Reconquista completed; Spain becomes global power.", category:"Found" },
+  { year:1517, title:"Luther's 95 Theses", desc:"Protestant Reformation launched.", category:"Culture" },
+  { year:1588, title:"Spanish Armada Defeated", desc:"Elizabethan England defeats Spain.", category:"War" },
+  { year:1618, title:"Thirty Years' War", desc:"Europe's most destructive religious war.", category:"War" },
+  { year:1683, title:"Battle of Vienna", desc:"Ottoman siege broken by winged hussars.", category:"War" },
+  { year:1707, title:"Acts of Union", desc:"England and Scotland unite as Great Britain.", category:"Politics" },
+  { year:1789, title:"French Revolution", desc:"Liberté, égalité, fraternité — monarchy overthrown.", category:"Politics" },
+  { year:1805, title:"Battle of Trafalgar", desc:"Nelson destroys Franco-Spanish fleet.", category:"War" },
+  { year:1815, title:"Congress of Vienna", desc:"Post-Napoleonic conservative order established.", category:"Politics" },
+  { year:1848, title:"Spring of Nations", desc:"Revolutionary wave sweeps Europe.", category:"Politics" },
+  { year:1861, title:"Unification of Italy", desc:"Risorgimento complete.", category:"Politics" },
+  { year:1871, title:"Unification of Germany", desc:"Bismarck's Realpolitik creates German Empire.", category:"Politics" },
+  { year:1914, title:"WWI — Sarajevo", desc:"Archduke Ferdinand assassinated — lamps go out across Europe.", category:"War" },
+  { year:1917, title:"Russian Revolution", desc:"Tsar overthrown; Soviet Union born.", category:"Politics" },
+  { year:1918, title:"WWI Armistice", desc:"Four empires fall — map of Europe redrawn.", category:"War" },
+  { year:1933, title:"Hitler Becomes Chancellor", desc:"Nazi seizure of power in Germany.", category:"Politics" },
+  { year:1939, title:"WWII Begins", desc:"Nazi invasion of Poland.", category:"War" },
+  { year:1942, title:"Battle of Stalingrad", desc:"Turning point — German 6th Army destroyed.", category:"War" },
+  { year:1944, title:"D-Day — Normandy", desc:"Allies liberate Western Europe.", category:"War" },
+  { year:1945, title:"WWII Ends", desc:"VE Day — Nazi Germany defeated; Holocaust exposed.", category:"War" },
+  { year:1950, title:"Schuman Declaration", desc:"French-German coal and steel pooling — EU seed.", category:"Politics" },
+  { year:1957, title:"Treaty of Rome", desc:"European Economic Community founded.", category:"Politics" },
+  { year:1961, title:"Berlin Wall Erected", desc:"Cold War division made concrete.", category:"Politics" },
+  { year:1989, title:"Berlin Wall Falls", desc:"Peaceful revolutions sweep Eastern Europe.", category:"Politics" },
+  { year:1991, title:"Collapse of USSR", desc:"Soviet empire dissolved — 15 new republics.", category:"Politics" },
+  { year:1993, title:"Maastricht Treaty — EU Founded", desc:"European Union established.", category:"Found" },
+  { year:2004, title:"EU Eastern Enlargement", desc:"Ten new members join.", category:"Politics" },
+  { year:2008, title:"Global Financial Crisis", desc:"Lehman Brothers collapse; Eurozone crisis.", category:"Politics" },
+  { year:2016, title:"Brexit Referendum", desc:"UK votes to leave the EU.", category:"Politics" },
+  { year:2020, title:"COVID-19 Pandemic", desc:"Global pandemic reshapes European society.", category:"Culture" },
+  { year:2022, title:"Russian Invasion of Ukraine", desc:"Largest European war since 1945.", category:"War" },
+  { year:2025, title:"Europe in 2025", desc:"EU navigates AI revolution, energy transition, strategic autonomy.", category:"Politics" }
 ];
 
 /* ────────────────────────────────────────────────
    BATTLE / EVENT MARKER DATA
-   Key locations with year, displayed on map
    ──────────────────────────────────────────────── */
 const MARKER_EVENTS = [
-  { year:-1274, name:"Battle of Kadesh", lat:34.557, lng:36.497, category:"War", desc:"Largest chariot battle in history" },
-  { year:-490, name:"Battle of Marathon", lat:38.118, lng:23.979, category:"War", desc:"Athens defeats Persia" },
-  { year:-480, name:"Battle of Thermopylae", lat:38.800, lng:22.548, category:"War", desc:"300 Spartans' last stand" },
-  { year:-331, name:"Battle of Gaugamela", lat:36.560, lng:43.444, category:"War", desc:"Alexander defeats Darius III" },
-  { year:-216, name:"Battle of Cannae", lat:41.307, lng:16.127, category:"War", desc:"Hannibal annihilates Roman legions" },
-  { year:-52, name:"Battle of Alesia", lat:47.537, lng:4.498, category:"War", desc:"Caesar conquers Gaul" },
-  { year:-31, name:"Battle of Actium", lat:38.936, lng:20.752, category:"War", desc:"Octavian defeats Antony & Cleopatra" },
-  { year:9, name:"Battle of Teutoburg Forest", lat:52.405, lng:8.128, category:"War", desc:"Germanic tribes annihilate three legions" },
-  { year:451, name:"Battle of Catalaunian Plains", lat:48.958, lng:4.366, category:"War", desc:"Last great Roman victory — Attila halted" },
-  { year:732, name:"Battle of Tours / Poitiers", lat:47.416, lng:0.688, category:"War", desc:"Charles Martel stops Umayyad advance" },
-  { year:1066, name:"Battle of Hastings", lat:50.912, lng:0.492, category:"War", desc:"William the Conqueror takes England" },
-  { year:1415, name:"Battle of Agincourt", lat:50.463, lng:2.141, category:"War", desc:"Henry V's longbowmen triumph" },
-  { year:1453, name:"Fall of Constantinople", lat:41.008, lng:28.978, category:"War", desc:"End of the Roman Empire" },
-  { year:1571, name:"Battle of Lepanto", lat:38.571, lng:21.186, category:"War", desc:"Holy League defeats Ottoman fleet" },
-  { year:1683, name:"Battle of Vienna", lat:48.222, lng:16.342, category:"War", desc:"Ottoman siege broken" },
-  { year:1709, name:"Battle of Poltava", lat:49.589, lng:34.553, category:"War", desc:"Russian victory over Sweden" },
-  { year:1805, name:"Battle of Austerlitz", lat:49.130, lng:16.761, category:"War", desc:"Napoleon's greatest victory" },
-  { year:1815, name:"Battle of Waterloo", lat:50.680, lng:4.409, category:"War", desc:"Napoleon's final defeat" },
-  { year:1916, name:"Battle of Verdun", lat:49.207, lng:5.422, category:"War", desc:"WWI's longest battle — 700,000 casualties" },
-  { year:1942, name:"Battle of Stalingrad", lat:48.708, lng:44.501, category:"War", desc:"WWII turning point" },
-  { year:1944, name:"D-Day — Normandy", lat:49.414, lng:-0.727, category:"War", desc:"Allied invasion of Europe" }
+  { year:-1274, name:"Kadesh", lat:34.557, lng:36.497, cat:"War", desc:"Largest chariot battle" },
+  { year:-490, name:"Marathon", lat:38.118, lng:23.979, cat:"War", desc:"Athens defeats Persia" },
+  { year:-480, name:"Thermopylae", lat:38.800, lng:22.548, cat:"War", desc:"300 Spartans" },
+  { year:-331, name:"Gaugamela", lat:36.560, lng:43.444, cat:"War", desc:"Alexander defeats Darius" },
+  { year:-216, name:"Cannae", lat:41.307, lng:16.127, cat:"War", desc:"Hannibal's masterpiece" },
+  { year:-52, name:"Alesia", lat:47.537, lng:4.498, cat:"War", desc:"Caesar conquers Gaul" },
+  { year:9, name:"Teutoburg", lat:52.405, lng:8.128, cat:"War", desc:"Germanic tribes destroy legions" },
+  { year:451, name:"Catalaunian Plains", lat:48.958, lng:4.366, cat:"War", desc:"Attila halted" },
+  { year:732, name:"Tours", lat:47.416, lng:0.688, cat:"War", desc:"Charles Martel stops Umayyads" },
+  { year:1066, name:"Hastings", lat:50.912, lng:0.492, cat:"War", desc:"William takes England" },
+  { year:1453, name:"Constantinople Falls", lat:41.008, lng:28.978, cat:"War", desc:"End of Roman Empire" },
+  { year:1683, name:"Vienna", lat:48.222, lng:16.342, cat:"War", desc:"Ottoman siege broken" },
+  { year:1805, name:"Austerlitz", lat:49.130, lng:16.761, cat:"War", desc:"Napoleon's greatest" },
+  { year:1815, name:"Waterloo", lat:50.680, lng:4.409, cat:"War", desc:"Napoleon's final defeat" },
+  { year:1916, name:"Verdun", lat:49.207, lng:5.422, cat:"War", desc:"WWI's longest battle" },
+  { year:1942, name:"Stalingrad", lat:48.708, lng:44.501, cat:"War", desc:"WWII turning point" },
+  { year:1944, name:"D-Day", lat:49.414, lng:-0.727, cat:"War", desc:"Allied invasion" }
 ];
 
 
 /* ═══════════════════════════════════════════════════════════
-   SIMULATION ENGINE — State, Timeline, Map
+   TERRITORY SCALING ENGINE
+   Expands empires from core → peak → contract based on lifecycle
    ═══════════════════════════════════════════════════════════ */
 
-// ── State ──
+// Scale a polygon around its centroid by a factor (0.0 = centroid point, 1.0 = original)
+function scalePolygon(coords, factor) {
+  if (!coords || coords.length < 3) return coords;
+  // Calculate centroid
+  let cx = 0, cy = 0;
+  coords.forEach(p => { cx += p[0]; cy += p[1]; });
+  cx /= coords.length; cy /= coords.length;
+  // Scale each point from centroid
+  return coords.map(p => [cx + (p[0] - cx) * factor, cy + (p[1] - cy) * factor]);
+}
+
+// Blend two polygon arrays by linear interpolation
+function blendPolygons(core, peak, t) {
+  if (!core || !peak) return peak || core;
+  // Use the polygon with more points as the template
+  const base = peak.length >= core.length ? peak : core;
+  const other = peak.length >= core.length ? core : peak;
+  // Match point counts: downsample base to other's count if needed
+  if (Math.abs(base.length - other.length) > 2) {
+    // Simple approach: scale core toward peak based on t
+    return scalePolygon(peak, 0.3 + t * 0.7);
+  }
+  const result = [];
+  for (let i = 0; i < base.length; i++) {
+    const j = Math.min(i, other.length - 1);
+    result.push([
+      base[i][0] + (other[j][0] - base[i][0]) * (1 - t),
+      base[i][1] + (other[j][1] - base[i][1]) * (1 - t)
+    ]);
+  }
+  return result;
+}
+
+// Get the territory for an empire at a given year, with lifecycle scaling
+function getEmpireTerritory(empire, year) {
+  const lifespan = empire.endYear - empire.startYear;
+  if (lifespan <= 0) return empire.peakTerritory || empire.coreTerritory;
+
+  // Position in lifecycle: 0 = birth, 1 = death
+  const position = (year - empire.startYear) / lifespan;
+
+  const coreT = empire.coreTerritory;
+  const peakT = empire.peakTerritory;
+
+  if (!peakT) return coreT;
+
+  // Rise phase (first 20% of lifespan): expand from 30% core → full peak
+  if (position < 0.2) {
+    const t = position / 0.2; // 0→1 within rise phase
+    const factor = 0.3 + t * 0.7;
+    return scalePolygon(peakT, factor);
+  }
+  // Peak phase (20%-80% of lifespan): show full peak territory
+  else if (position < 0.8) {
+    return peakT;
+  }
+  // Fall phase (last 20%): contract back toward core
+  else {
+    const t = (position - 0.8) / 0.2; // 0→1 within fall phase
+    const factor = 1.0 - t * 0.7; // 1.0 → 0.3
+    return scalePolygon(peakT, Math.max(0.3, factor));
+  }
+}
+
+// Get lifecycle phase label
+function getEmpirePhase(empire, year) {
+  if (!isEmpireActive(empire, year)) return null;
+  const lifespan = empire.endYear - empire.startYear;
+  if (lifespan <= 0) return 'peak';
+  const position = (year - empire.startYear) / lifespan;
+  if (position < 0.2) return 'rising';
+  if (position < 0.8) return 'peak';
+  return 'falling';
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SIMULATION ENGINE
+   ═══════════════════════════════════════════════════════════ */
+
 let currentYearIndex = 0;
 let isPlaying = false;
 let playInterval = null;
@@ -1132,9 +1004,7 @@ let animSpeed = 300;
 let showEmpireBorders = true;
 let map, empirePolygons = {};
 let cityMarkersGroup, eventMarkersGroup;
-let tooltipEl;
 
-// ── Timeline (25-year steps from 3000 BCE to 2025 CE) ──
 const START_YEAR = -3000;
 const END_YEAR = 2025;
 const YEAR_STEP = 25;
@@ -1142,30 +1012,22 @@ const TIMELINE_YEARS = [];
 for (let y = START_YEAR; y <= END_YEAR; y += YEAR_STEP) TIMELINE_YEARS.push(y);
 if (TIMELINE_YEARS[TIMELINE_YEARS.length-1] < END_YEAR) TIMELINE_YEARS.push(END_YEAR);
 
-// ── Helper: find closest population data point ──
 function getClosestPopulation(year) {
   const keys = Object.keys(POPULATION_DATA).map(Number).sort((a,b) => a-b);
-  let closest = keys[0];
-  let minDist = Math.abs(year - closest);
-  for (const k of keys) {
-    const d = Math.abs(year - k);
-    if (d < minDist) { minDist = d; closest = k; }
-  }
+  let closest = keys[0], minDist = Math.abs(year - closest);
+  for (const k of keys) { const d = Math.abs(year - k); if (d < minDist) { minDist = d; closest = k; } }
   return POPULATION_DATA[closest];
 }
 
-// ── Helper: is an empire active in a given year? ──
 function isEmpireActive(empire, year) {
   return year >= empire.startYear && year <= empire.endYear;
 }
 
-// ── Helper: format year for display ──
 function formatYear(year) {
   if (year < 0) return Math.abs(year) + " BCE";
   return year + " CE";
 }
 
-// ── Helper: get era label ──
 function getEraLabel(year) {
   if (year < -2000) return "Early Bronze Age";
   if (year < -1200) return "Late Bronze Age";
@@ -1182,7 +1044,7 @@ function getEraLabel(year) {
   if (year < 1400) return "Late Medieval";
   if (year < 1500) return "Renaissance Dawn";
   if (year < 1648) return "Reformation & Religious Wars";
-  if (year < 1789) return "Age of Absolutism & Enlightenment";
+  if (year < 1789) return "Age of Absolutism";
   if (year < 1815) return "Revolutionary & Napoleonic Era";
   if (year < 1871) return "Industrial Revolution & Nationalism";
   if (year < 1914) return "Belle Époque";
@@ -1194,7 +1056,6 @@ function getEraLabel(year) {
   return "The Digital Age";
 }
 
-// ── Helper: format population number ──
 function formatPop(millions) {
   if (millions >= 1000) return (millions/1000).toFixed(1) + "B";
   if (millions >= 1) return millions.toFixed(0) + "M";
@@ -1216,50 +1077,51 @@ function initMap() {
     attributionControl: true
   });
 
-  // Use CARTO light tiles for parchment-like base
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 19
   }).addTo(map);
 
-  // Groups for markers
   cityMarkersGroup = L.layerGroup().addTo(map);
   eventMarkersGroup = L.layerGroup().addTo(map);
 
-  // Tooltip element
-  tooltipEl = document.getElementById('map-tooltip');
-
-  // Initialize empire polygons with empty data
+  // Create Leaflet polygons for all empires (initially empty, hidden)
   EMPIRE_DATA.forEach(empire => {
-    empirePolygons[empire.id] = L.polygon(empire.territory, {
+    const poly = L.polygon([[0,0]], {
       color: empire.color,
-      weight: 2,
-      opacity: 0.6,
+      weight: 2.5,
+      opacity: 0.65,
       fillColor: empire.color,
-      fillOpacity: 0.2,
-      dashArray: empire.type === 'civilization' ? '5,5' : null,
-      className: 'empire-polygon'
-    }).addTo(map);
+      fillOpacity: 0.30,
+      className: 'empire-polygon',
+      smoothFactor: 1.0
+    });
+    // Don't add to map yet — will be added when empire becomes active
 
-    // Tooltip on hover
-    empirePolygons[empire.id].on('mouseover', function(e) {
+    poly.on('mouseover', function(e) {
       const el = document.getElementById('map-tooltip');
-      el.innerHTML = '<div class="tt-name">'+empire.name+'</div><div class="tt-detail">'+empire.desc.substring(0,120)+'...</div>';
+      const phase = getEmpirePhase(empire, TIMELINE_YEARS[currentYearIndex]);
+      let phaseHTML = '';
+      if (phase === 'rising') phaseHTML = '<span class="tt-phase tt-rising">▲ Expanding</span>';
+      else if (phase === 'peak') phaseHTML = '<span class="tt-phase tt-peak">◆ At Peak</span>';
+      else if (phase === 'falling') phaseHTML = '<span class="tt-phase tt-falling">▼ Declining</span>';
+      el.innerHTML = '<div class="tt-name">'+empire.name+'</div><div class="tt-detail">'+empire.desc.substring(0,140)+'</div>'+phaseHTML;
       el.classList.add('visible');
     });
-    empirePolygons[empire.id].on('mousemove', function(e) {
-      document.getElementById('map-tooltip').style.left = (e.originalEvent.clientX + 12) + 'px';
-      document.getElementById('map-tooltip').style.top = (e.originalEvent.clientY - 40) + 'px';
+    poly.on('mousemove', function(e) {
+      document.getElementById('map-tooltip').style.left = (e.originalEvent.clientX + 14) + 'px';
+      document.getElementById('map-tooltip').style.top = (e.originalEvent.clientY - 50) + 'px';
     });
-    empirePolygons[empire.id].on('mouseout', function() {
+    poly.on('mouseout', function() {
       document.getElementById('map-tooltip').classList.remove('visible');
     });
-    empirePolygons[empire.id].on('click', function() {
-      // Scroll empire into view in side panel
+    poly.on('click', function() {
       const item = document.getElementById('empire-'+empire.id);
       if (item) item.scrollIntoView({behavior:'smooth',block:'center'});
     });
+
+    empirePolygons[empire.id] = poly;
   });
 }
 
@@ -1269,87 +1131,110 @@ function initMap() {
    ═══════════════════════════════════════════════════════════ */
 
 function updateMapForYear(year) {
-  // Update empire polygon visibility
   EMPIRE_DATA.forEach(empire => {
     const active = isEmpireActive(empire, year);
+    const poly = empirePolygons[empire.id];
+
     if (showEmpireBorders && active) {
-      empirePolygons[empire.id].setStyle({
+      const territory = getEmpireTerritory(empire, year);
+      const phase = getEmpirePhase(empire, year);
+
+      // Update polygon shape
+      poly.setLatLngs(territory);
+
+      // Style based on phase
+      let fillOp = 0.30, strokeOp = 0.65, weight = 2.5;
+      if (phase === 'rising') { fillOp = 0.20 + 0.05; weight = 2.0; }
+      else if (phase === 'peak') { fillOp = 0.35; weight = 3.0; strokeOp = 0.75; }
+      else if (phase === 'falling') { fillOp = 0.25; weight = 2.0; strokeOp = 0.55; }
+
+      poly.setStyle({
         color: empire.color,
-        weight: 2.5,
-        opacity: 0.7,
+        weight: weight,
+        opacity: strokeOp,
         fillColor: empire.color,
-        fillOpacity: 0.25
+        fillOpacity: fillOp,
+        dashArray: phase === 'rising' ? '6,4' : phase === 'falling' ? '4,4' : null
       });
-      if (!map.hasLayer(empirePolygons[empire.id])) {
-        empirePolygons[empire.id].addTo(map);
+
+      if (!map.hasLayer(poly)) {
+        poly.addTo(map);
       }
+      // Bring active empires to front (later empires on top)
+      poly.bringToFront();
     } else {
-      if (map.hasLayer(empirePolygons[empire.id])) {
-        map.removeLayer(empirePolygons[empire.id]);
+      if (map.hasLayer(poly)) {
+        map.removeLayer(poly);
       }
     }
   });
 
-  // Update city markers
+  // City markers
   cityMarkersGroup.clearLayers();
   CITIES_DATA.forEach(city => {
     if (year >= city.founded) {
+      const size = Math.abs(year - city.founded) < 50 ? 6 : 4;
       const marker = L.circleMarker([city.lat, city.lng], {
-        radius: 5,
-        fillColor: '#3a2a18',
-        fillOpacity: 0.7,
+        radius: size,
+        fillColor: size > 5 ? '#3a2a18' : '#5a4830',
+        fillOpacity: 0.75,
         color: '#b8963c',
         weight: 1.5,
         opacity: 0.9
       }).addTo(cityMarkersGroup);
-      marker.bindTooltip('<b>'+city.name+'</b><br><small>Founded '+(city.founded<0?Math.abs(city.founded)+' BCE':city.founded+' CE')+'</small><br><small style="color:#8b7558">'+city.significance+'</small>', {direction:'top', offset:[0,-8]});
+      const fy = city.founded < 0 ? Math.abs(city.founded)+' BCE' : city.founded+' CE';
+      marker.bindTooltip('<b>'+city.name+'</b><br><small>Founded '+fy+'</small><br><small style="color:#8b7558">'+city.sig+'</small>', {direction:'top', offset:[0,-8]});
     }
   });
 
-  // Update battle/event markers
+  // Battle markers
   eventMarkersGroup.clearLayers();
   MARKER_EVENTS.forEach(ev => {
     if (Math.abs(year - ev.year) <= 30) {
       const marker = L.circleMarker([ev.lat, ev.lng], {
-        radius: 7,
-        fillColor: ev.category === 'War' ? '#a02030' : '#3058a0',
-        fillOpacity: 0.5,
-        color: ev.category === 'War' ? '#8b2020' : '#2040a0',
+        radius: 8,
+        fillColor: ev.cat === 'War' ? '#a02030' : '#3058a0',
+        fillOpacity: 0.45,
+        color: ev.cat === 'War' ? '#8b2020' : '#2040a0',
         weight: 1.5,
         opacity: 0.8
       }).addTo(eventMarkersGroup);
-      marker.bindTooltip('<b>'+ev.name+'</b> ('+(ev.year<0?Math.abs(ev.year)+' BCE':ev.year+' CE')+')<br><small>'+ev.desc+'</small>', {direction:'top'});
+      const ey = ev.year < 0 ? Math.abs(ev.year)+' BCE' : ev.year+' CE';
+      marker.bindTooltip('<b>⚔ '+ev.name+'</b> ('+ey+')<br><small>'+ev.desc+'</small>', {direction:'top'});
     }
   });
 }
 
 function updateSidePanel(year) {
-  // Era display
   document.getElementById('era-year').textContent = formatYear(year);
   document.getElementById('era-year').className = 'era-year' + (year < 0 ? ' bce' : '');
   document.getElementById('era-label').textContent = getEraLabel(year);
 
-  // Active empires list
   const activeEmpires = EMPIRE_DATA.filter(e => isEmpireActive(e, year));
   let empireHTML = '';
   if (activeEmpires.length === 0) {
     empireHTML = '<div style="color:var(--text-muted);font-size:0.72rem;font-style:italic;">No major empires active in this period</div>';
   } else {
-    activeEmpires.forEach(e => {
+    activeEmpires.sort((a,b) => b.endYear - a.endYear).forEach(e => {
+      const phase = getEmpirePhase(e, year);
+      let phaseBadge = '';
+      if (phase === 'rising') phaseBadge = '<span class="empire-phase phase-rising">▲ Rising</span>';
+      else if (phase === 'peak') phaseBadge = '<span class="empire-phase phase-peak">◆ Peak</span>';
+      else if (phase === 'falling') phaseBadge = '<span class="empire-phase phase-falling">▼ Falling</span>';
+
       empireHTML += '<div class="empire-item animate-in" id="empire-'+e.id+'" onclick="focusEmpire(\''+e.id+'\')">';
       empireHTML += '<span class="empire-dot" style="background:'+e.color+';"></span>';
       empireHTML += '<div class="empire-info">';
-      empireHTML += '<div class="empire-name">'+e.name+'</div>';
+      empireHTML += '<div class="empire-name">'+e.name+phaseBadge+'</div>';
       empireHTML += '<div class="empire-dates">'+formatYear(e.startYear)+' – '+formatYear(e.endYear)+'</div>';
       empireHTML += '</div>';
-      empireHTML += '<div class="empire-capital">'+e.capital.name+'</div>';
+      empireHTML += '<div class="empire-capital">'+e.capital+'</div>';
       empireHTML += '</div>';
     });
   }
   document.getElementById('empires-list').innerHTML = empireHTML;
 
-  // Cities list
-  const activeCities = CITIES_DATA.filter(c => year >= c.founded && Math.abs(year - c.founded) <= 100);
+  const activeCities = CITIES_DATA.filter(c => year >= c.founded && Math.abs(year - c.founded) <= 120);
   let citiesHTML = '';
   if (activeCities.length === 0) {
     citiesHTML = '<div style="color:var(--text-muted);font-size:0.72rem;font-style:italic;">No major city foundations in this period</div>';
@@ -1357,18 +1242,15 @@ function updateSidePanel(year) {
     activeCities.slice(0, 8).forEach(c => {
       citiesHTML += '<div class="empire-item animate-in">';
       citiesHTML += '<span class="empire-dot" style="background:var(--bronze);"></span>';
-      citiesHTML += '<div class="empire-info">';
-      citiesHTML += '<div class="empire-name" style="font-size:0.75rem;">'+c.name+'</div>';
-      citiesHTML += '<div class="empire-capital">'+c.significance.substring(0,50)+'</div>';
-      citiesHTML += '</div>';
+      citiesHTML += '<div class="empire-info"><div class="empire-name" style="font-size:0.75rem;">'+c.name+'</div>';
+      citiesHTML += '<div class="empire-capital">'+c.sig.substring(0,50)+'</div></div>';
       citiesHTML += '<div class="empire-dates">'+(c.founded<0?Math.abs(c.founded)+' BCE':c.founded+' CE')+'</div>';
       citiesHTML += '</div>';
     });
   }
   document.getElementById('cities-list').innerHTML = citiesHTML;
 
-  // Events list
-  const recentEvents = HISTORICAL_EVENTS.filter(ev => Math.abs(year - ev.year) <= 30);
+  const recentEvents = HISTORICAL_EVENTS.filter(ev => Math.abs(year - ev.year) <= 35);
   let eventsHTML = '';
   if (recentEvents.length === 0) {
     eventsHTML = '<div style="color:var(--text-muted);font-size:0.72rem;font-style:italic;">No major recorded events in this period</div>';
@@ -1385,7 +1267,6 @@ function updateSidePanel(year) {
   }
   document.getElementById('events-list').innerHTML = eventsHTML;
 
-  // Side panel era subtitle
   if (activeEmpires.length > 0) {
     document.getElementById('era-subtitle').textContent = activeEmpires.map(e=>e.name).slice(0,3).join(' · ');
   } else {
@@ -1409,17 +1290,10 @@ function updateTimeline(year) {
   const pct = (idx / (TIMELINE_YEARS.length - 1)) * 100;
   document.getElementById('timeline-progress').style.width = pct + '%';
   document.getElementById('timeline-thumb').style.left = pct + '%';
-
-  // Update tick labels
   document.querySelectorAll('.timeline-tick').forEach(t => t.classList.remove('active'));
   const tickEl = document.getElementById('tick-' + year);
   if (tickEl) tickEl.classList.add('active');
 }
-
-
-/* ═══════════════════════════════════════════════════════════
-   SIMULATION UPDATE — Master update function
-   ═══════════════════════════════════════════════════════════ */
 
 function updateAll(year) {
   updateMapForYear(year);
@@ -1429,13 +1303,8 @@ function updateAll(year) {
 }
 
 function goToYear(year) {
-  // Snap to nearest timeline point
-  let closest = TIMELINE_YEARS[0];
-  let minDist = Math.abs(year - closest);
-  for (const y of TIMELINE_YEARS) {
-    const d = Math.abs(year - y);
-    if (d < minDist) { minDist = d; closest = y; }
-  }
+  let closest = TIMELINE_YEARS[0], minDist = Math.abs(year - closest);
+  for (const y of TIMELINE_YEARS) { const d = Math.abs(year - y); if (d < minDist) { minDist = d; closest = y; } }
   currentYearIndex = TIMELINE_YEARS.indexOf(closest);
   updateAll(closest);
 }
@@ -1446,11 +1315,7 @@ function goToYear(year) {
    ═══════════════════════════════════════════════════════════ */
 
 function togglePlay() {
-  if (isPlaying) {
-    stopPlay();
-  } else {
-    startPlay();
-  }
+  if (isPlaying) { stopPlay(); } else { startPlay(); }
 }
 
 function startPlay() {
@@ -1461,9 +1326,7 @@ function startPlay() {
     if (currentYearIndex < TIMELINE_YEARS.length - 1) {
       currentYearIndex++;
       updateAll(TIMELINE_YEARS[currentYearIndex]);
-    } else {
-      stopPlay();
-    }
+    } else { stopPlay(); }
   }, animSpeed);
 }
 
@@ -1476,18 +1339,12 @@ function stopPlay() {
 
 function stepForward() {
   if (isPlaying) stopPlay();
-  if (currentYearIndex < TIMELINE_YEARS.length - 1) {
-    currentYearIndex++;
-    updateAll(TIMELINE_YEARS[currentYearIndex]);
-  }
+  if (currentYearIndex < TIMELINE_YEARS.length - 1) { currentYearIndex++; updateAll(TIMELINE_YEARS[currentYearIndex]); }
 }
 
 function stepBackward() {
   if (isPlaying) stopPlay();
-  if (currentYearIndex > 0) {
-    currentYearIndex--;
-    updateAll(TIMELINE_YEARS[currentYearIndex]);
-  }
+  if (currentYearIndex > 0) { currentYearIndex--; updateAll(TIMELINE_YEARS[currentYearIndex]); }
 }
 
 function goToStart() {
@@ -1506,10 +1363,7 @@ function setSpeed(ms) {
   animSpeed = ms;
   document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('.speed-btn[data-speed="'+ms+'"]').classList.add('active');
-  if (isPlaying) {
-    stopPlay();
-    startPlay();
-  }
+  if (isPlaying) { stopPlay(); startPlay(); }
 }
 
 
@@ -1537,8 +1391,8 @@ function toggleEmpireBorders() {
 function focusEmpire(id) {
   const empire = EMPIRE_DATA.find(e => e.id === id);
   if (!empire) return;
-  // Calculate center of territory
-  const coords = empire.territory;
+  const coords = getEmpireTerritory(empire, TIMELINE_YEARS[currentYearIndex]);
+  if (!coords || coords.length < 2) return;
   let sumLat = 0, sumLng = 0;
   coords.forEach(c => { sumLat += c[0]; sumLng += c[1]; });
   map.setView([sumLat/coords.length, sumLng/coords.length], 5, {animate: true});
@@ -1551,24 +1405,16 @@ function focusEmpire(id) {
 
 function initTimelineTicks() {
   const ticksContainer = document.getElementById('timeline-ticks');
-  // Show key era transition ticks only (too many for all 200+)
   const keyYears = [-3000,-2000,-1200,-500,-27,330,476,800,1000,1300,1453,1500,1648,1789,1815,1871,1914,1918,1939,1945,1991,2025];
   keyYears.forEach(y => {
-    // Find nearest timeline year
-    let closest = TIMELINE_YEARS[0];
-    let minDist = Math.abs(y - closest);
-    for (const ty of TIMELINE_YEARS) {
-      const d = Math.abs(ty - y);
-      if (d < minDist) { minDist = d; closest = ty; }
-    }
+    let closest = TIMELINE_YEARS[0], minDist = Math.abs(y - closest);
+    for (const ty of TIMELINE_YEARS) { const d = Math.abs(ty - y); if (d < minDist) { minDist = d; closest = ty; } }
     const idx = TIMELINE_YEARS.indexOf(closest);
     const pct = (idx / (TIMELINE_YEARS.length - 1)) * 100;
     const tick = document.createElement('div');
     tick.className = 'timeline-tick era-boundary';
     tick.id = 'tick-'+closest;
-    tick.style.position = 'absolute';
-    tick.style.left = pct + '%';
-    tick.style.transform = 'translateX(-50%)';
+    tick.style.cssText = 'position:absolute;left:'+pct+'%;transform:translateX(-50%);';
     tick.textContent = closest < 0 ? Math.abs(closest)+'BCE' : closest+'CE';
     tick.onclick = () => goToYear(closest);
     ticksContainer.appendChild(tick);
@@ -1586,16 +1432,10 @@ function initTimelineTrack() {
     updateAll(TIMELINE_YEARS[currentYearIndex]);
   });
 
-  // Drag support
   const thumb = document.getElementById('timeline-thumb');
   let dragging = false;
 
-  thumb.addEventListener('mousedown', function(e) {
-    dragging = true;
-    if (isPlaying) stopPlay();
-    e.preventDefault();
-  });
-
+  thumb.addEventListener('mousedown', function(e) { dragging = true; if (isPlaying) stopPlay(); e.preventDefault(); });
   document.addEventListener('mousemove', function(e) {
     if (!dragging) return;
     const rect = track.getBoundingClientRect();
@@ -1604,18 +1444,9 @@ function initTimelineTrack() {
     currentYearIndex = Math.max(0, Math.min(TIMELINE_YEARS.length - 1, idx));
     updateAll(TIMELINE_YEARS[currentYearIndex]);
   });
+  document.addEventListener('mouseup', function() { dragging = false; });
 
-  document.addEventListener('mouseup', function() {
-    dragging = false;
-  });
-
-  // Touch events
-  thumb.addEventListener('touchstart', function(e) {
-    dragging = true;
-    if (isPlaying) stopPlay();
-    e.preventDefault();
-  });
-
+  thumb.addEventListener('touchstart', function(e) { dragging = true; if (isPlaying) stopPlay(); e.preventDefault(); });
   document.addEventListener('touchmove', function(e) {
     if (!dragging) return;
     const rect = track.getBoundingClientRect();
@@ -1624,10 +1455,7 @@ function initTimelineTrack() {
     currentYearIndex = Math.max(0, Math.min(TIMELINE_YEARS.length - 1, idx));
     updateAll(TIMELINE_YEARS[currentYearIndex]);
   });
-
-  document.addEventListener('touchend', function() {
-    dragging = false;
-  });
+  document.addEventListener('touchend', function() { dragging = false; });
 }
 
 
@@ -1661,15 +1489,12 @@ window.addEventListener('DOMContentLoaded', function() {
   initMap();
   initTimelineTicks();
   initTimelineTrack();
-  // Start at 3000 BCE (index 0)
   goToYear(-3000);
 });
 
-// Handle window resize
 window.addEventListener('resize', function() {
   if (map) map.invalidateSize();
 });
 </script>
-
 </body>
 </html>
