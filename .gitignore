@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Fable/Veles
+.fable/
+fable.toml
+
+# Python
+__pycache__/
+*.pyc
+
+# Build outputs
+dist/
+build/
