@@ -963,10 +963,10 @@ function getEmpireTerritory(empire, year) {
 
   if (!peakT) return coreT;
 
-  // Rise phase (first 20% of lifespan): expand from 30% core → full peak
+  // Rise phase (first 20% of lifespan): expand from 55% core → full peak
   if (position < 0.2) {
     const t = position / 0.2; // 0→1 within rise phase
-    const factor = 0.3 + t * 0.7;
+    const factor = 0.55 + t * 0.45;
     return scalePolygon(peakT, factor);
   }
   // Peak phase (20%-80% of lifespan): show full peak territory
@@ -976,8 +976,8 @@ function getEmpireTerritory(empire, year) {
   // Fall phase (last 20%): contract back toward core
   else {
     const t = (position - 0.8) / 0.2; // 0→1 within fall phase
-    const factor = 1.0 - t * 0.7; // 1.0 → 0.3
-    return scalePolygon(peakT, Math.max(0.3, factor));
+    const factor = 1.0 - t * 0.45; // 1.0 → 0.55
+    return scalePolygon(peakT, Math.max(0.55, factor));
   }
 }
 
@@ -1086,18 +1086,25 @@ function initMap() {
   cityMarkersGroup = L.layerGroup().addTo(map);
   eventMarkersGroup = L.layerGroup().addTo(map);
 
-  // Create Leaflet polygons for all empires (initially empty, hidden)
+  // Create Leaflet polygons for all empires with proper initial coords
+  // Always on map — visibility controlled by opacity
   EMPIRE_DATA.forEach(empire => {
-    const poly = L.polygon([[0,0]], {
+    // Use peak territory as initial coords so Leaflet creates a valid polygon
+    const initCoords = (empire.peakTerritory && empire.peakTerritory.length >= 3)
+      ? empire.peakTerritory
+      : (empire.coreTerritory && empire.coreTerritory.length >= 3)
+        ? empire.coreTerritory
+        : [[50,0],[50,2],[48,2],[48,0]];
+
+    const poly = L.polygon(initCoords, {
       color: empire.color,
       weight: 2.5,
-      opacity: 0.65,
+      opacity: 0,
       fillColor: empire.color,
-      fillOpacity: 0.30,
+      fillOpacity: 0,
       className: 'empire-polygon',
       smoothFactor: 1.0
-    });
-    // Don't add to map yet — will be added when empire becomes active
+    }).addTo(map); // Always on map — visibility controlled by opacity
 
     poly.on('mouseover', function(e) {
       const el = document.getElementById('map-tooltip');
@@ -1142,11 +1149,11 @@ function updateMapForYear(year) {
       // Update polygon shape
       poly.setLatLngs(territory);
 
-      // Style based on phase
-      let fillOp = 0.30, strokeOp = 0.65, weight = 2.5;
-      if (phase === 'rising') { fillOp = 0.20 + 0.05; weight = 2.0; }
-      else if (phase === 'peak') { fillOp = 0.35; weight = 3.0; strokeOp = 0.75; }
-      else if (phase === 'falling') { fillOp = 0.25; weight = 2.0; strokeOp = 0.55; }
+      // Style based on phase — bumped for clear visibility
+      let fillOp = 0.32, strokeOp = 0.70, weight = 2.5;
+      if (phase === 'rising') { fillOp = 0.28; weight = 2.2; strokeOp = 0.60; }
+      else if (phase === 'peak') { fillOp = 0.40; weight = 3.0; strokeOp = 0.80; }
+      else if (phase === 'falling') { fillOp = 0.28; weight = 2.2; strokeOp = 0.60; }
 
       poly.setStyle({
         color: empire.color,
@@ -1157,15 +1164,10 @@ function updateMapForYear(year) {
         dashArray: phase === 'rising' ? '6,4' : phase === 'falling' ? '4,4' : null
       });
 
-      if (!map.hasLayer(poly)) {
-        poly.addTo(map);
-      }
-      // Bring active empires to front (later empires on top)
       poly.bringToFront();
     } else {
-      if (map.hasLayer(poly)) {
-        map.removeLayer(poly);
-      }
+      // Hide by zeroing opacity — stays on map, no removeLayer
+      poly.setStyle({ opacity: 0, fillOpacity: 0, weight: 0 });
     }
   });
 
